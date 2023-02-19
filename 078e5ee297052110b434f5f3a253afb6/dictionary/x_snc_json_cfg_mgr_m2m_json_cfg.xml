@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="JSON Cfg Mgr m2m JSON Cfg" max_length="40" name="x_snc_json_cfg_mgr_m2m_json_cfg" type="collection">
+        <element attributes="encode_utf8=false" label="JSON Configuration" max_length="32" name="child_json_cfg" reference="x_snc_json_cfg_mgr_json_configuration" type="reference"/>
+        <element attributes="encode_utf8=false" label="JSON Configuration" max_length="32" name="parent_json_cfg" reference="x_snc_json_cfg_mgr_json_configuration" type="reference"/>
+        <index name="index">
+            <element name="parent_json_cfg"/>
+        </index>
+        <index name="index2">
+            <element name="child_json_cfg"/>
+        </index>
+    </element>
+</database>

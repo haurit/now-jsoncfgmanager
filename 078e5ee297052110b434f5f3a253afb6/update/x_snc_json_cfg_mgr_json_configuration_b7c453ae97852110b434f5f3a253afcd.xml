@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="x_snc_json_cfg_mgr_json_configuration">
+    <x_snc_json_cfg_mgr_json_configuration action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <configuration><![CDATA[var oCfg = {
+	'child_object_1_key': {
+		'child_obj_1_value_1_key': 'child_obj_1_value_1_value'
+	},
+	'child_object_2_key': {
+		'child_obj_2_value_1_key': 'child_obj_2_value_1_value'
+	},
+};]]></configuration>
+        <name>demo_child_1</name>
+        <number>OCFGDEMO00000002</number>
+        <root>false</root>
+        <sys_class_name>x_snc_json_cfg_mgr_json_configuration</sys_class_name>
+        <sys_created_by>tom.hauri</sys_created_by>
+        <sys_created_on>2023-02-19 15:05:02</sys_created_on>
+        <sys_id>b7c453ae97852110b434f5f3a253afcd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>demo_child_1</sys_name>
+        <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
+        <sys_update_name>x_snc_json_cfg_mgr_json_configuration_b7c453ae97852110b434f5f3a253afcd</sys_update_name>
+        <sys_updated_by>tom.hauri</sys_updated_by>
+        <sys_updated_on>2023-02-19 15:05:02</sys_updated_on>
+    </x_snc_json_cfg_mgr_json_configuration>
+</record_update>

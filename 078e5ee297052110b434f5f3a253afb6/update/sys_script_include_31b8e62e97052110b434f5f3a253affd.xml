@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_snc_json_cfg_mgr.ConfigurationManager</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Configuration Manager</description>
+        <name>ConfigurationManager</name>
+        <script><![CDATA[var ConfigurationManager = Class.create();
+ConfigurationManager.prototype = {
+	initialize: function() {
+	}, // function initialize
+
+	mergeCfgObjectsByName: function(oReferenceObj, oParent, oChild) {
+		var aMsg = []; // just for debug purpose: ['1 sKey: ' + sKey + ' oParent: ' + JSON.stringify(oParent) + ' oChild: ' + ' oParent: ' + JSON.stringify(oParent)];
+		var bHasChildConfig = false;
+		if (!oChild) {
+			grConfigChild = new GlideRecord('x_snc_json_cfg_mgr_json_configuration');
+			grConfigChild.get(oReferenceObj['id']);
+			oChild = this.getConfigJSON(grConfigChild);
+		} // if no child config
+		if (oChild) {
+			var sKey = oReferenceObj['name'];
+			var sOldKey = '{{' + oReferenceObj['fullname'] + '}}';
+			if (oParent.hasOwnProperty(sOldKey)) {
+				var oParentNode = oParent[sOldKey];
+				if ((oParentNode) && (typeof oParentNode === 'object')) {
+					this.mergeObjects(oChild, oParentNode, aMsg, sKey);
+					oParent[sKey] = oChild;
+					//} else if ((oParent[sKey] != 'NULL') && (oParent[sOldKey] != 'NULL')) {
+				} else {
+					oParent[sKey] = oChild;
+				} // if object
+			} else if (oParent) {
+				if ((!Array.isArray(oParent)) && (oParent === Object(oParent))) {
+					Object.keys(oParent).forEach(function(sParentKey){
+						oParent[sParentKey] = this.mergeCfgObjectsByName(oReferenceObj, oParent[sParentKey], oChild);
+					}, this); // if child object
+				} // if parent is object
+			} // if we find key
+			delete oParent[sOldKey];
+		} // if child config
+		return oParent;
+	}, // function mergeCfgObjectsByName
+
+	mergeObjects: function(oObj1, oObj2, aMsg, sKey) {
+		//aMsg.push('2 oObj1: ' + sKey + ' oObj1: ' + JSON.stringify(oObj1) + ' oObj2: ' + JSON.stringify(oObj2));
+		for (var p in oObj2) {
+			try {
+				if (oObj2[p] == 'NULL') {
+					delete oObj1[p];
+				} else {
+					if (!oObj1[p].constructor == Object) {
+						oObj1[p] = {};
+					} // if not yet object, make it an object
+					if (oObj2[p].constructor == Object) {
+						oObj1[p] = this.mergeObjects(oObj1[p], oObj2[p], aMsg, sKey);
+					} else {
+						oObj1[p] = oObj2[p];
+					} // if is obj
+				}
+			} catch(ex) {
+				try {
+					oObj1[p] = oObj2[p];
+				} catch(ex) {
+					gs.error('ConfigurationManager.mergeObjects p: ' + p + ' oObj1: ' + JSON.stringify(oObj1) + ' oObj2: ' + JSON.stringify(oObj2) + ' Message: ' + String(ex));
+				}
+			} // catch if not set
+		} // each property in obj2
+		return oObj1;
+	}, // function mergeObjects
+
+	getJSONStringFromConfig: function(grConfig) {
+		var gsEvaluator = new GlideScopedEvaluator();
+		gsEvaluator.putVariable('oCfg', null);
+		gsEvaluator.evaluateScript(grConfig, 'configuration', null);
+		var sConfig = JSON.stringify(gsEvaluator.getVariable('oCfg')); // copy the object to a new var
+		return sConfig;
+	}, // function getJSONStringFromConfig
+
+	getConfigJSON: function(grConfig) {
+		var oCfgChild = {};
+		var sConfig = this.getJSONStringFromConfig(grConfig);
+		var oConfig = this.parseJSON(sConfig);
+		if (oConfig) {
+			var oScriptRefs = this.getScriptReferences(sConfig, true, true);
+			var aReferenceIds = oScriptRefs['ids'];
+			var aMissingReferences = oScriptRefs['notfound'];
+			//var grConfigChild = new GlideRecord('x_snc_json_cfg_mgr_json_configuration');
+			aReferenceIds.forEach(function(oReferenceObj) {
+				oConfig = this.mergeCfgObjectsByName(oReferenceObj, oConfig);
+			}, this); // each reference
+			aMissingReferences.forEach(function(sMissingRef) {
+				oConfig = this.mergeCfgObjectsByName(sMissingRef, oConfig, {'_missing_ref_cfg_': true});
+			}, this); // each reference
+			var sConfigTmp = JSON.stringify(oConfig);
+			sConfigTmp = sConfigTmp.replace(/'{{'/g, "''").replace(/'}}'/g, "''");
+			sConfigTmp = sConfigTmp.replace(/"{{"/g, '""').replace(/"}}"/g, '""');
+			var oConfigTmp = this.parseJSON(sConfigTmp);
+			if (oConfigTmp) {
+				this.mergeObjects(oConfigTmp, oConfig); // option to overwrite lower level objects
+			} // if cfg tmp
+		} // if oConfig
+		return oConfig;
+	}, // function getConfigJSON
+
+	getConfigById: function(sId) {
+		var grConfig = new GlideRecord('x_snc_json_cfg_mgr_json_configuration');
+		if ((sId) && (grConfig.get(sId))) {
+			return this.getConfig(grConfig);
+		} // if config
+	}, // function getConfigById
+
+	getConfigByName: function(sName) {
+		var grConfig = new GlideRecord('x_snc_json_cfg_mgr_json_configuration');
+		if ((sName) && (grConfig.get('name', sName))) {
+			return this.getConfig(grConfig);
+		} // if config
+	}, // function getConfigByName
+
+	getConfig: function(grConfig) {
+		var aTmpValue = [], sFieldName = '', sFieldValue = '';
+		var sConfig = JSON.stringify(this.getConfigJSON(grConfig));
+		var reConfigFields = /\[\[([A-Z|_|\||0-9|\.|,])+\]\]/gim;
+		var aResults = sConfig.match(reConfigFields);
+		if ((aResults) && (Array.isArray(aResults))) {
+			aResults.forEach(function(sResult) {
+				sFieldName = String(sResult).replace(/(\[|\])/g, '');
+				aTmpValue = sFieldName.split('|');
+				if ((aTmpValue) && (Array.isArray(aTmpValue))) {
+					sFieldName = aTmpValue[0];
+					sFieldValue = grConfig.getValue(sFieldName);
+					if ((!sFieldValue) && (aTmpValue.length > 1)) {
+						sFieldValue = aTmpValue[1];
+					} // if default value
+				} // if tmp value
+				sConfig = sConfig.replace('"' + sResult + '"', '"' + sFieldValue + '"');
+			}); // get replace fields
+		} // if result
+		var oConfig = this.parseJSON(sConfig);
+		return oConfig;
+	}, // function getConfig
+
+	modifyConfiguration: function(grConfig, grConfigOld, sOperation) {
+		var bValid = true;
+		var sConfig = this.getJSONStringFromConfig(grConfig);
+		var oConfig = this.parseJSON(sConfig);
+		sConfig = JSON.stringify(oConfig);
+		if ((sOperation != 'insert') && (sOperation != 'delete') && ((!oConfig) || (typeof oConfig != 'object'))) {
+			gs.addErrorMessage('JSON is not valid.');
+			bValid = false;
+		} else {
+			var sName = grConfig.getValue('name');
+			var bRoot = (grConfig.getValue('root') == '1') ? true : false;
+			var sDisplayName = (bRoot) ? 'Root: ' : 'Node: ';
+			grConfig.setValue('sys_name', sDisplayName + sName);
+			var sParentId = grConfig.getUniqueValue();
+			var oScriptRefs = this.getScriptReferences(sConfig, true);
+			var aReferenceIds = oScriptRefs['ids'];
+			var aMissingReferences = oScriptRefs['notfound'];
+			this.removeReferences(sParentId, aReferenceIds);
+			aReferenceIds.forEach(function(sReferenceId) {
+				if (!this.hasReference(sParentId, sReferenceId)) {
+					this.addReference(sParentId, sReferenceId);
+				} // if not exist add
+			}, this); // each reference
+			if ((aMissingReferences) && (Array.isArray(aMissingReferences)) && (aMissingReferences.length > 0)) {
+				gs.addInfoMessage('This configuration contains the following references that are inactive or missing exist: ' + aMissingReferences.join(', '));
+			} // if missing
+			if (grConfig.getValue('root') == true) {
+				this.handleAttachments(grConfig, JSON.stringify(this.getConfig(grConfig, true)));
+			} // if not parsable
+		} // if json not valid
+		return bValid;
+	}, // function modifyConfiguration
+
+	parseJSON: function(sJSON) {
+		if (sJSON) {
+			try {
+				return JSON.parse(sJSON);
+			} catch (ex) {
+				gs.error('ConfigurationManager.parseJSON Error parsing script: ' + sJSON + ' Message: ' + String(ex));
+			} // catch JSON ex
+		} // if script
+		return '';
+	}, // function parseJSON
+
+	handleAttachments: function(grConfig, sJSON) {
+		var gsAttachment = new GlideSysAttachment();
+		var grAtt = new GlideRecord('sys_attachment');
+		grAtt.addQuery('table_name', grConfig.getTableName());
+		grAtt.addQuery('table_sys_id', grConfig.getUniqueValue());
+		grAtt.query();
+		while (grAtt.next()) {
+			gsAttachment.deleteAttachment(grAtt.getUniqueValue());
+		} // each attachment
+		return gsAttachment.write(grConfig, grConfig.getValue('name') + '_config.json', 'application/json', sJSON);
+	}, // function handleAttachments
+
+	getScriptReferences: function(sScript, bReturnMissingRefs, bReturnRefObject) {
+		var aReferenceIds = [];
+		var aMissingReferences = [];
+		var grConfig = new GlideRecord('x_snc_json_cfg_mgr_json_configuration');
+		var reRefs = /{{([A-Z|_|\||0-9|\.|,])+}}/gim;
+		var aResults = sScript.match(reRefs);
+		var sFullName = '', sName = '', sFileName = '', aTmpNames = [];
+		if ((aResults) && (Array.isArray(aResults))) {
+			aResults.forEach(function(sResult) {
+				sFullName = sResult.replace(/({|})/g, '');
+				aTmpNames = sFullName.split('|');
+				sName = aTmpNames[0];
+				if ((Array.isArray(aTmpNames)) && (aTmpNames.length > 1)) {
+					sFileName = aTmpNames[1];
+				} else {
+					sFileName = sName;
+				} // if tmp names
+				grConfig = new GlideRecord('x_snc_json_cfg_mgr_json_configuration');
+				grConfig.addEncodedQuery('active=true^name=' + sFileName);
+				grConfig.query();
+				if (grConfig.next()) {
+					if (bReturnRefObject) {
+						aReferenceIds.push({'fullname': sFullName, 'name': sName, 'filename': sFileName, 'id': grConfig.getUniqueValue()});
+					} else {
+						aReferenceIds.push(grConfig.getUniqueValue());
+					} // if ref obj
+				} else {
+					aMissingReferences.push(sFullName);
+				} // if found
+			}); // get ids
+		} // if result
+		if (bReturnMissingRefs) {
+			return {'ids': aReferenceIds, 'notfound': aMissingReferences};
+		} else {
+			return aReferenceIds;
+		} // return object
+	}, // function getScriptReferences
+
+	addReference: function(sReferenceId, sParentId) {
+		var grRef = new GlideRecord('x_snc_json_cfg_mgr_m2m_json_cfg');
+		grRef.setValue('parent_json_cfg', sParentId);
+		grRef.setValue('child_json_cfg', sReferenceId);
+		grRef.insert();
+	}, // function addReference
+
+	removeReferences: function(sParentId, aReferenceIds) {
+		var grRef = new GlideRecord('x_snc_json_cfg_mgr_m2m_json_cfg');
+		grRef.addEncodedQuery('parent_json_cfg=' + sParentId + '^child_json_cfgNOT IN' + aReferenceIds.join(','));
+		grRef.query();
+		grRef.deleteMultiple();
+	}, // function removeReferences
+
+	hasReference: function(sReferenceId, sParentId) {
+		var grRef = new GlideRecord('x_snc_json_cfg_mgr_m2m_json_cfg');
+		grRef.addEncodedQuery('parent_json_cfg=' + sParentId + '^child_json_cfg=' + sReferenceId);
+		grRef.query();
+		if (grRef.next()) {
+			return true;
+		} // if ref
+		return false;
+	}, // function hasReference
+
+	version: '1.0.0',
+	author: 'ServiceNow Customer Outcomes, Tom Hauri',
+	email: 'tom.hauri@servicenow.com',
+	type: 'ConfigurationManager'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>tom.hauri</sys_created_by>
+        <sys_created_on>2023-02-19 11:51:10</sys_created_on>
+        <sys_id>31b8e62e97052110b434f5f3a253affd</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>ConfigurationManager</sys_name>
+        <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
+        <sys_update_name>sys_script_include_31b8e62e97052110b434f5f3a253affd</sys_update_name>
+        <sys_updated_by>tom.hauri</sys_updated_by>
+        <sys_updated_on>2023-02-19 15:14:19</sys_updated_on>
+    </sys_script_include>
+</record_update>
