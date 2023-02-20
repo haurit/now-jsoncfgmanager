@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <copied_from/>
+        <description>Run Server Side Validation Script</description>
+        <display_name>Run Server Side Script</display_name>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes>Get Config by Object input</notes>
+        <order>1</order>
+        <snapshot/>
+        <step_config display_value="Run Server Side Script">41de4a935332120028bc29cac2dc349a</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>tom.hauri</sys_created_by>
+        <sys_created_on>2023-02-19 16:52:38</sys_created_on>
+        <sys_id>1bdde76297092110b434f5f3a253aff2</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>Run Server Side Script</sys_name>
+        <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
+        <sys_update_name>sys_atf_step_1bdde76297092110b434f5f3a253aff2</sys_update_name>
+        <sys_updated_by>tom.hauri</sys_updated_by>
+        <sys_updated_on>2023-02-20 07:53:56</sys_updated_on>
+        <table/>
+        <test display_value="getConfig">9e7d636297092110b434f5f3a253af4a</test>
+        <timeout/>
+        <warning_message/>
+    </sys_atf_step>
+    <sys_variable_value action="delete_multiple" query="document_key=1bdde76297092110b434f5f3a253aff2"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>1bdde76297092110b434f5f3a253aff2</document_key>
+        <order>200</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>tom.hauri</sys_created_by>
+        <sys_created_on>2023-02-19 16:52:38</sys_created_on>
+        <sys_id>19fd2b6297092110b434f5f3a253af78</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_updated_by>tom.hauri</sys_updated_by>
+        <sys_updated_on>2023-02-20 07:53:56</sys_updated_on>
+        <value>(function(outputs, steps, params, stepResult, assertEqual) {&#13;
+	var oDemoObject = {&#13;
+		'demo_child_0': {&#13;
+			'demo_child_0_key': 'demo_child_0_value'&#13;
+		}, // demo child 0&#13;
+	}; // demo object&#13;
+	var _getCfg = new getCfg(oDemoObject, 'Object step 1');&#13;
+	var oReturnObject = _getCfg.getConfig();&#13;
+	var testAssertion = {&#13;
+		name: "Object Input",&#13;
+		shouldbe: oDemoObject,&#13;
+		value: oReturnObject,&#13;
+	}; // test assertion&#13;
+	assertEqual(testAssertion); // output equals input&#13;
+})(outputs, steps, params, stepResult, assertEqual);&#13;
+</value>
+        <variable display_value="Test script">989d9e235324220002c6435723dc3484</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>1bdde76297092110b434f5f3a253aff2</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>tom.hauri</sys_created_by>
+        <sys_created_on>2023-02-19 16:52:38</sys_created_on>
+        <sys_id>ddfd2b6297092110b434f5f3a253af77</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>tom.hauri</sys_updated_by>
+        <sys_updated_on>2023-02-19 16:52:38</sys_updated_on>
+        <value>3.1</value>
+        <variable display_value="Jasmine version">42f2564b73031300440211d8faf6a777</variable>
+    </sys_variable_value>
+</record_update>

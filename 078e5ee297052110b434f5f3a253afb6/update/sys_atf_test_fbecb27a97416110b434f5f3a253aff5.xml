@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_test">
+    <sys_atf_test action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <copied_from/>
+        <description>Get Value direct, inherited and override for level 0 - 2</description>
+        <enable_parameterized_testing>false</enable_parameterized_testing>
+        <name>getValue</name>
+        <parameters/>
+        <remember/>
+        <sys_class_name>sys_atf_test</sys_class_name>
+        <sys_created_by>tom.hauri</sys_created_by>
+        <sys_created_on>2023-02-20 07:56:55</sys_created_on>
+        <sys_id>fbecb27a97416110b434f5f3a253aff5</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>getValue</sys_name>
+        <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
+        <sys_update_name>sys_atf_test_fbecb27a97416110b434f5f3a253aff5</sys_update_name>
+        <sys_updated_by>tom.hauri</sys_updated_by>
+        <sys_updated_on>2023-02-20 07:59:20</sys_updated_on>
+    </sys_atf_test>
+    <sys_variable_value action="delete_multiple" query="document_key=fbecb27a97416110b434f5f3a253aff5"/>
+</record_update>

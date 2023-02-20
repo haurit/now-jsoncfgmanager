@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_related sys_domain="global" table="x_snc_json_cfg_mgr_json_configuration" version="2" view="">
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="JSON Configuration - Default view" name="x_snc_json_cfg_mgr_json_configuration" related_list="NULL" sys_domain="global" view="Default view">ebb3536e97852110b434f5f3a253af90</list_id>
+            <order_by/>
+            <position>0</position>
+            <related_list>x_snc_json_cfg_mgr_m2m_json_cfg.parent_json_cfg</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>tom.hauri</sys_created_by>
+            <sys_created_on>2023-02-19 14:58:06</sys_created_on>
+            <sys_id>77b3536e97852110b434f5f3a253af92</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>tom.hauri</sys_updated_by>
+            <sys_updated_on>2023-02-19 14:58:06</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="JSON Configuration - Default view" name="x_snc_json_cfg_mgr_json_configuration" related_list="NULL" sys_domain="global" view="Default view">ebb3536e97852110b434f5f3a253af90</list_id>
+            <order_by/>
+            <position>1</position>
+            <related_list>x_snc_json_cfg_mgr_m2m_json_cfg.child_json_cfg</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>tom.hauri</sys_created_by>
+            <sys_created_on>2023-02-19 14:58:06</sys_created_on>
+            <sys_id>7fb3936e97852110b434f5f3a253af72</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>tom.hauri</sys_updated_by>
+            <sys_updated_on>2023-02-19 14:58:06</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list_entry action="INSERT_OR_UPDATE">
+            <filter/>
+            <list_id display_value="JSON Configuration - Default view" name="x_snc_json_cfg_mgr_json_configuration" related_list="NULL" sys_domain="global" view="Default view">ebb3536e97852110b434f5f3a253af90</list_id>
+            <order_by/>
+            <position>2</position>
+            <related_list>REL:67bdac52374010008687ddb1967334ee</related_list>
+            <sys_class_name>sys_ui_related_list_entry</sys_class_name>
+            <sys_created_by>tom.hauri</sys_created_by>
+            <sys_created_on>2023-02-19 14:58:06</sys_created_on>
+            <sys_id>73b3936e97852110b434f5f3a253af73</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>tom.hauri</sys_updated_by>
+            <sys_updated_on>2023-02-19 14:58:06</sys_updated_on>
+        </sys_ui_related_list_entry>
+        <sys_ui_related_list action="INSERT_OR_UPDATE">
+            <calculated_name>JSON Configuration - Default view</calculated_name>
+            <filter/>
+            <name>x_snc_json_cfg_mgr_json_configuration</name>
+            <order_by/>
+            <position/>
+            <related_list/>
+            <sys_class_name>sys_ui_related_list</sys_class_name>
+            <sys_created_by>tom.hauri</sys_created_by>
+            <sys_created_on>2023-02-19 14:58:06</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>ebb3536e97852110b434f5f3a253af90</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>JSON Configuration - Default view</sys_name>
+            <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
+            <sys_update_name>sys_ui_related_x_snc_json_cfg_mgr_json_configuration_null</sys_update_name>
+            <sys_updated_by>tom.hauri</sys_updated_by>
+            <sys_updated_on>2023-02-19 14:58:06</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_related_list>
+    </sys_ui_related>
+</record_update>
