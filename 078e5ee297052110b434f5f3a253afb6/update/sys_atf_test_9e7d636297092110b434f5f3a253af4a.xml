@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_test">
+    <sys_atf_test action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <copied_from/>
+        <description>Get Config by Config Record, SysId, Name and Object</description>
+        <enable_parameterized_testing>false</enable_parameterized_testing>
+        <name>getConfig</name>
+        <parameters/>
+        <remember/>
+        <sys_class_name>sys_atf_test</sys_class_name>
+        <sys_created_by>tom.hauri</sys_created_by>
+        <sys_created_on>2023-02-19 16:51:22</sys_created_on>
+        <sys_id>9e7d636297092110b434f5f3a253af4a</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>getConfig</sys_name>
+        <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
+        <sys_update_name>sys_atf_test_9e7d636297092110b434f5f3a253af4a</sys_update_name>
+        <sys_updated_by>tom.hauri</sys_updated_by>
+        <sys_updated_on>2023-02-19 19:25:29</sys_updated_on>
+    </sys_atf_test>
+    <sys_variable_value action="delete_multiple" query="document_key=9e7d636297092110b434f5f3a253af4a"/>
+</record_update>
