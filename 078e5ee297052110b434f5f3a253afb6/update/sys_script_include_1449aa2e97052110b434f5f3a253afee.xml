@@ -5,7 +5,7 @@
         <api_name>x_snc_json_cfg_mgr.getCfg</api_name>
         <caller_access/>
         <client_callable>false</client_callable>
-        <description/>
+        <description>Get Configuration and Values</description>
         <name>getCfg</name>
         <script><![CDATA[var getCfg = Class.create();
 getCfg.prototype = {
@@ -101,22 +101,23 @@ getCfg.prototype = {
 		} // if replace
 	}, // function getConfigValue
 
+	type: 'getCfg',
 	version: '1.0.0',
-	author: 'ServiceNow Customer Outcomes, Tom Hauri',
-	email: 'tom.hauri@servicenow.com',
-	type: 'getCfg'
+	author: 'Tom Hauri',
+	email: 'tom@hauri.biz'
+	
 };]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>tom.hauri</sys_created_by>
         <sys_created_on>2023-02-19 12:14:05</sys_created_on>
         <sys_id>1449aa2e97052110b434f5f3a253afee</sys_id>
-        <sys_mod_count>27</sys_mod_count>
+        <sys_mod_count>29</sys_mod_count>
         <sys_name>getCfg</sys_name>
         <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
         <sys_update_name>sys_script_include_1449aa2e97052110b434f5f3a253afee</sys_update_name>
         <sys_updated_by>tom.hauri</sys_updated_by>
-        <sys_updated_on>2023-02-20 07:56:23</sys_updated_on>
+        <sys_updated_on>2023-02-22 16:18:04</sys_updated_on>
     </sys_script_include>
 </record_update>
