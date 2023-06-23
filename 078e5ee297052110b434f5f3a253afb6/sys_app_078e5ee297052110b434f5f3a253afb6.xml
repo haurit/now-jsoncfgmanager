@@ -29,20 +29,20 @@
         <sys_created_by>tom.hauri</sys_created_by>
         <sys_created_on>2023-02-19 11:05:41</sys_created_on>
         <sys_id>078e5ee297052110b434f5f3a253afb6</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_updated_by>tom.hauri</sys_updated_by>
-        <sys_updated_on>2023-02-19 11:05:43</sys_updated_on>
+        <sys_updated_on>2023-06-23 06:41:00</sys_updated_on>
         <template/>
         <trackable>true</trackable>
         <uninstall_blocked>false</uninstall_blocked>
         <user_role/>
         <vendor/>
         <vendor_prefix/>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
         <x_snc_devtools_documentation_url/>
         <x_snc_devtools_maintainer/>
         <x_snc_devtools_maintainer_email/>
-        <x_snc_devtools_repo_url/>
+        <x_snc_devtools_repo_url>https://github.com/haurit/now-jsoncfgmanager</x_snc_devtools_repo_url>
     </sys_app>
     <sys_attachment action="INSERT_OR_UPDATE">
         <average_image_color/>

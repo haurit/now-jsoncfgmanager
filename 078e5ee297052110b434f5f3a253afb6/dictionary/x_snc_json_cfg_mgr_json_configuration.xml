@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
-    <element attributes="update_synch=true" extends="sys_metadata" label="JSON Configuration" max_length="40" name="x_snc_json_cfg_mgr_json_configuration" type="collection">
+    <element attributes="update_synch=true" extends="sys_metadata" label="JSON Configuration" max_length="40" name="x_snc_json_cfg_mgr_json_configuration" sizeclass="2" type="collection">
         <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
         <element label="Configuration" max_length="8000" name="configuration" type="script"/>
         <element display="true" label="Name" mandatory="true" max_length="120" name="name" type="string"/>

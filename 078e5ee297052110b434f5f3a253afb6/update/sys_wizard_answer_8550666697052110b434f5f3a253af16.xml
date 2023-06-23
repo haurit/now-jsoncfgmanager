@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_wizard_answer">
+    <sys_wizard_answer action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <answer>JSON Configuration</answer>
+        <button_label/>
+        <dependent_value/>
+        <element/>
+        <name>JSON Configuration</name>
+        <next_question/>
+        <order>100</order>
+        <payload_name/>
+        <question display_value="Application File" name="Application File">ebb7424397302110b434f5f3a253af85</question>
+        <roles/>
+        <script/>
+        <sys_class_name>sys_wizard_answer</sys_class_name>
+        <sys_created_by>tom.hauri</sys_created_by>
+        <sys_created_on>2023-02-19 11:13:27</sys_created_on>
+        <sys_id>8550666697052110b434f5f3a253af16</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>JSON Configuration</sys_name>
+        <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
+        <sys_update_name>sys_wizard_answer_8550666697052110b434f5f3a253af16</sys_update_name>
+        <sys_updated_by>tom.hauri</sys_updated_by>
+        <sys_updated_on>2023-02-19 11:13:27</sys_updated_on>
+        <table/>
+        <target_url>x_snc_json_cfg_mgr_json_configuration.do</target_url>
+        <type>1</type>
+    </sys_wizard_answer>
+</record_update>
