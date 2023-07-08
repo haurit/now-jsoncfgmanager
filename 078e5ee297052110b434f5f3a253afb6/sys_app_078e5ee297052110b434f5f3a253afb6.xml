@@ -22,16 +22,16 @@
         <scoped_administration>false</scoped_administration>
         <short_description>Manage JSON configurations</short_description>
         <source>x_snc_json_cfg_mgr</source>
-        <store_correlation_id/>
+        <store_correlation_id>REPOAPP0000001002</store_correlation_id>
         <store_url/>
         <sys_class_name>sys_app</sys_class_name>
         <sys_code/>
         <sys_created_by>tom.hauri</sys_created_by>
         <sys_created_on>2023-02-19 11:05:41</sys_created_on>
         <sys_id>078e5ee297052110b434f5f3a253afb6</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_updated_by>tom.hauri</sys_updated_by>
-        <sys_updated_on>2023-06-23 06:41:00</sys_updated_on>
+        <sys_updated_on>2023-06-23 06:41:50</sys_updated_on>
         <template/>
         <trackable>true</trackable>
         <uninstall_blocked>false</uninstall_blocked>
