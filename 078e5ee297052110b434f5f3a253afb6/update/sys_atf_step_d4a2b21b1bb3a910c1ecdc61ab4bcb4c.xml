@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_step">
+    <sys_atf_step action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <copied_from/>
+        <description>Set the following values on the form:
+Name = TestUserJSONCfgMgrParent
+and Root = true
+and Configuration = var oCfg = {&#13;
+	'demo_parent_1': {&#13;
+		'demo_parent_1_obj_1_key_1': 'demo_parent_1_obj_1_key_1_value'&#13;
+	}, // demo child 0&#13;
+	'{{demo_child_1}}': '', // demo child 1 inherited&#13;
+	'{{demo_child_1_copy|demo_child_1}}': {&#13;
+		'child_1_object_2': {&#13;
+			'child_1_obj_2_key_2': 'child_1_obj_2_value_1_value_override',&#13;
+		}, // child 1 obj 2 key 2 override&#13;
+	}, // demo child 2 copy child 1&#13;
+}; // oCfg
+
+Warning: Using a table that extends Application File [sys_metadata] may cause unexpected behavior for other tests running in parallel&#13;
+See the documentation for Test Design Considerations</description>
+        <display_name>Set Field Values</display_name>
+        <inputs/>
+        <inputs/>
+        <mugshots_cache_json/>
+        <notes/>
+        <order>5</order>
+        <step_config display_value="Set Field Values">fcae4a935332120028bc29cac2dc340e</step_config>
+        <sys_class_name>sys_atf_step</sys_class_name>
+        <sys_created_by>tom.hauri</sys_created_by>
+        <sys_created_on>2023-07-08 13:23:17</sys_created_on>
+        <sys_id>d4a2b21b1bb3a910c1ecdc61ab4bcb4c</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_name>Set Field Values</sys_name>
+        <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
+        <sys_update_name>sys_atf_step_d4a2b21b1bb3a910c1ecdc61ab4bcb4c</sys_update_name>
+        <sys_updated_by>tom.hauri</sys_updated_by>
+        <sys_updated_on>2023-07-08 13:51:41</sys_updated_on>
+        <table>x_snc_json_cfg_mgr_json_configuration</table>
+        <test display_value="CreateAndReadJSON">5dffe2571bb3a910c1ecdc61ab4bcbd3</test>
+        <timeout/>
+        <warning_message>Warning: Using a table that extends Application File [sys_metadata] may cause unexpected behavior for other tests running in parallel&#13;
+See the documentation for Test Design Considerations</warning_message>
+    </sys_atf_step>
+    <sys_variable_value action="delete_multiple" query="document_key=d4a2b21b1bb3a910c1ecdc61ab4bcb4c"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>d4a2b21b1bb3a910c1ecdc61ab4bcb4c</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>tom.hauri</sys_created_by>
+        <sys_created_on>2023-07-08 13:23:17</sys_created_on>
+        <sys_id>4603f61b1bb3a910c1ecdc61ab4bcb72</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>tom.hauri</sys_updated_by>
+        <sys_updated_on>2023-07-08 13:51:41</sys_updated_on>
+        <value>name=TestUserJSONCfgMgrParent^root=true^configuration=var oCfg = {&#13;
+	'demo_parent_1': {&#13;
+		'demo_parent_1_obj_1_key_1': 'demo_parent_1_obj_1_key_1_value'&#13;
+	}, // demo child 0&#13;
+	'{{demo_child_1}}': '', // demo child 1 inherited&#13;
+	'{{demo_child_1_copy|demo_child_1}}': {&#13;
+		'child_1_object_2': {&#13;
+			'child_1_obj_2_key_2': 'child_1_obj_2_value_1_value_override',&#13;
+		}, // child 1 obj 2 key 2 override&#13;
+	}, // demo child 2 copy child 1&#13;
+}; // oCfg^EQ</value>
+        <variable display_value="Field values">b3dba2465320220002c6435723dc34f0</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>d4a2b21b1bb3a910c1ecdc61ab4bcb4c</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>tom.hauri</sys_created_by>
+        <sys_created_on>2023-07-08 13:23:17</sys_created_on>
+        <sys_id>8203f61b1bb3a910c1ecdc61ab4bcb72</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>tom.hauri</sys_updated_by>
+        <sys_updated_on>2023-07-08 13:23:17</sys_updated_on>
+        <value>x_snc_json_cfg_mgr_json_configuration</value>
+        <variable display_value="Table">424ca6465320220002c6435723dc34b5</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_atf_step</document>
+        <document_key>d4a2b21b1bb3a910c1ecdc61ab4bcb4c</document_key>
+        <order>50</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>tom.hauri</sys_created_by>
+        <sys_created_on>2023-07-08 13:23:17</sys_created_on>
+        <sys_id>ce03f61b1bb3a910c1ecdc61ab4bcb71</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>tom.hauri</sys_updated_by>
+        <sys_updated_on>2023-07-08 13:23:17</sys_updated_on>
+        <value>standard_ui</value>
+        <variable display_value="Form UI">946f3c1a0f23330072e6452bc4767eda</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=d4a2b21b1bb3a910c1ecdc61ab4bcb4c"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>field_values</field>
+        <id>d4a2b21b1bb3a910c1ecdc61ab4bcb4c</id>
+        <sys_created_by>tom.hauri</sys_created_by>
+        <sys_created_on>2023-07-08 13:23:17</sys_created_on>
+        <sys_id>4e03f61b1bb3a910c1ecdc61ab4bcb71</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>tom.hauri</sys_updated_by>
+        <sys_updated_on>2023-07-08 13:51:41</sys_updated_on>
+        <table>var__m_atf_input_variable_fcae4a935332120028bc29cac2dc340e</table>
+        <value>name=TestUserJSONCfgMgrParent^root=true^configuration=var oCfg = {&#13;
+	'demo_parent_1': {&#13;
+		'demo_parent_1_obj_1_key_1': 'demo_parent_1_obj_1_key_1_value'&#13;
+	}, // demo child 0&#13;
+	'{{demo_child_1}}': '', // demo child 1 inherited&#13;
+	'{{demo_child_1_copy|demo_child_1}}': {&#13;
+		'child_1_object_2': {&#13;
+			'child_1_obj_2_key_2': 'child_1_obj_2_value_1_value_override',&#13;
+		}, // child 1 obj 2 key 2 override&#13;
+	}, // demo child 2 copy child 1&#13;
+}; // oCfg^EQ</value>
+    </sys_element_mapping>
+</record_update>

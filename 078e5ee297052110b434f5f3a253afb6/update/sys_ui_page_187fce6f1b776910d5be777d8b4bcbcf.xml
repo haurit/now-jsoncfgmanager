@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_page">
+    <sys_ui_page action="INSERT_OR_UPDATE">
+        <category>general</category>
+        <client_script/>
+        <description/>
+        <direct>false</direct>
+        <endpoint>x_snc_json_cfg_mgr_manual.do</endpoint>
+        <html><![CDATA[<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+<style>
+	td, th {border: 1px solid #ddd; padding: 10px;}
+</style>
+<div style="padding-left: 20px;">
+<h1>JSON Configuration Manager</h1>
+<p>Welcome to JSON Configuration Manager - created and maintained by&#160;<a href="mailto:tom@hauri.biz">Tom Hauri</a>.</p>
+<h2>Overview</h2>
+<p>JSON Configuration Manager provides an easy way to manage and consume complex JSON structures with a built in inheritence features that allows you to reuse common JSON structures.</p>
+<h2>Disclaimer</h2>
+<p>JSON Configuration Manager is NOT an officially supported ServiceNow product.
+
+JSON Configuration Manager does NOT come with any kind of warranty. If you use it, you own it!</p>
+<h2>System Requirements</h2>
+<ul><li>Tokyo or later</li><li>Access to&#160;<a href="https://github.com/haurit/now-jsoncfgmanager" target="_blank">https://github.com/haurit/now-jsoncfgmanager</a></li></ul>
+<h2>License</h2><p>Copyright 2022-2023 by Tom Hauri</p><p>Licensed under the Apache License, Version 2.0 (the "License")</p><p>You may not use JSON Configuration Manager except in compliance with the License.</p><p>You may obtain a copy of the License at: <a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank">https://www.apache.org/licenses/LICENSE-2.0</a></p><p>Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.</p>
+<h2>Release Notes</h2>
+<h3>1.0.0 - 12.2022</h3>
+<ol>
+<li>Initial Release</li>
+</ol>
+<h3>1.0.1 - 07.2023</h3>
+<ol>
+<li>Added administration menues</li>
+<li>Added manual page</li>
+<li>Additional ATF Tests</li>
+</ol>
+<h2>Problem Statement</h2>
+<p>Sustainable solutions are configurable so that you don't have to change the code to adapt to changing user requirements.</p>
+<p>Handling this data can be done in various ways, the table below shows why I choose JSON most of the time:</p>
+<p></p>
+<table class="styled-table">
+<thead>
+ <tr>
+  <th><strong>How / Rating</strong></th>
+  <th><strong>Hardcoded</strong></th>
+  <th><strong>System Properties</strong></th>
+  <th style="background-color: #f2f2f2;"><strong>JSON</strong></th>
+  <th><strong>User Interface</strong></th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td><strong>Usability</strong></td>
+  <td>LOW</td>
+  <td>MIDDLE</td>
+  <td style="background-color: #f2f2f2;">MIDDLE</td>
+  <td>VERY HIGH</td>
+ </tr>
+ <tr>
+ <td><strong>Maintainability</strong></td>
+  <td>VERY LOW</td>
+  <td>HIGH</td>
+  <td style="background-color: #f2f2f2;"><strong>HIGH</strong></td>
+  <td>HIGH</td>
+ </tr>
+ <tr>
+  <td><strong>Scalability</strong></td>
+  <td>LOW</td>
+  <td>LOW</td>
+  <td style="background-color: #f2f2f2;"><strong>VERY HIGH</strong></td>
+  <td>LOW</td>
+ </tr>
+ <tr>
+  <td><strong>Upgradability</strong></td>
+  <td>NO IMPACT</td>
+  <td>NO IMPACT</td>
+  <td style="background-color: #f2f2f2;">NO IMPACT</td>
+  <td>NO IMPACT</td>
+ </tr>
+ <tr>
+  <td><strong>Performance</strong></td>
+  <td>NO IMPACT</td>
+  <td>NO IMPACT</td>
+  <td style="background-color: #f2f2f2;">NO IMPACT</td>
+  <td>NO IMPACT</td>
+ </tr>
+ <tr>
+  <td><strong>Security</strong></td>
+  <td>NO IMPACT</td>
+  <td>NO IMPACT</td>
+  <td style="background-color: #f2f2f2;">NO IMPACT</td>
+  <td>NO IMPACT</td>
+ </tr>
+ <tr>
+  <td><strong>Flexibility</strong></td>
+  <td>LOW</td>
+  <td>MIDDLE</td>
+  <td style="background-color: #f2f2f2;"><strong>VERY HIGH</strong></td>
+  <td>LOW</td>
+ </tr>
+ <tr>
+  <td><strong>Effort to build</strong></td>
+  <td>LOW</td>
+  <td>MIDDLE</td>
+  <td style="background-color: #f2f2f2;"><strong>LOW</strong></td>
+  <td>VERY HIGH</td>
+ </tr>
+ </tbody>
+</table>
+<p></p>
+<p>While JSON is very strong when it comes to&#160;<strong>Scalability</strong>,&#160;<strong>Flexibility</strong>&#160;and&#160;<strong>Effort to build</strong>&#160;its weakness is that it does not score that well in terms of&#160;<strong>Usability</strong>.</p>
+<p>The JSON Configuration Manager aims to solve that by adding a user interface to manage the JSONs and template functionality to ensure you can reuse JSON templates to avoid data duplications. It also provides an API to consume the data.</p>
+</div>
+</j:jelly>]]></html>
+        <name>manual</name>
+        <processing_script/>
+        <sys_class_name>sys_ui_page</sys_class_name>
+        <sys_created_by>tom.hauri</sys_created_by>
+        <sys_created_on>2023-07-09 05:38:43</sys_created_on>
+        <sys_id>187fce6f1b776910d5be777d8b4bcbcf</sys_id>
+        <sys_mod_count>27</sys_mod_count>
+        <sys_name>manual</sys_name>
+        <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
+        <sys_update_name>sys_ui_page_187fce6f1b776910d5be777d8b4bcbcf</sys_update_name>
+        <sys_updated_by>tom.hauri</sys_updated_by>
+        <sys_updated_on>2023-07-09 09:29:09</sys_updated_on>
+    </sys_ui_page>
+</record_update>

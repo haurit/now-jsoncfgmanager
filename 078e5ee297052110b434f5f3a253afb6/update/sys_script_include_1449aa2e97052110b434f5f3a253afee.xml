@@ -11,6 +11,7 @@ TODO: https://staging-docs-servicenow.zoominsoftware.io/bundle/vancouver-api-ref
         <script><![CDATA[var getCfg = Class.create();
 getCfg.prototype = {
 	initialize: function(oConfig, sLogName) {
+		this.sLogPrefix = 'getCfg - ';
 		if (!oConfig) {
 			this.oConfig = {};
 			return;
@@ -19,7 +20,7 @@ getCfg.prototype = {
 		var sSubType = (sType == 'object') ? Object.prototype.toString.call(oConfig): '';
 		var bIsGlideRecord = (sSubType.indexOf('ScopedGlideRecord') == -1) ? false : true;
 		if (sLogName) {
-			gs.info('getCfg.initialize sLogName: ' + sLogName + ' sType: ' + sType + ' sSubType: ' + sSubType + ' bIsGlideRecord: ' + bIsGlideRecord);
+			gs.info(this.sLogPrefix + 'initialize sLogName: ' + sLogName + ' sType: ' + sType + ' sSubType: ' + sSubType + ' bIsGlideRecord: ' + bIsGlideRecord);
 		} // if log
 		this._CfgMgr = new ConfigurationManager();
 		if (bIsGlideRecord) {
@@ -103,7 +104,7 @@ getCfg.prototype = {
 	}, // function getConfigValue
 
 	type: 'getCfg',
-	version: '1.0.0',
+	version: '1.0.1',
 	author: 'Tom Hauri',
 	email: 'tom@hauri.biz'
 	
@@ -112,13 +113,13 @@ getCfg.prototype = {
         <sys_created_by>tom.hauri</sys_created_by>
         <sys_created_on>2023-02-19 12:14:05</sys_created_on>
         <sys_id>1449aa2e97052110b434f5f3a253afee</sys_id>
-        <sys_mod_count>30</sys_mod_count>
+        <sys_mod_count>31</sys_mod_count>
         <sys_name>getCfg</sys_name>
         <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
         <sys_update_name>sys_script_include_1449aa2e97052110b434f5f3a253afee</sys_update_name>
         <sys_updated_by>tom.hauri</sys_updated_by>
-        <sys_updated_on>2023-05-08 18:01:05</sys_updated_on>
+        <sys_updated_on>2023-07-09 09:42:30</sys_updated_on>
     </sys_script_include>
 </record_update>
