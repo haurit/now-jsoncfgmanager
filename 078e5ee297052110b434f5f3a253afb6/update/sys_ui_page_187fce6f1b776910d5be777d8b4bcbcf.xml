@@ -109,6 +109,26 @@ JSON Configuration Manager does NOT come with any kind of warranty. If you use i
 <p></p>
 <p>While JSON is very strong when it comes to&#160;<strong>Scalability</strong>,&#160;<strong>Flexibility</strong>&#160;and&#160;<strong>Effort to build</strong>&#160;its weakness is that it does not score that well in terms of&#160;<strong>Usability</strong>.</p>
 <p>The JSON Configuration Manager aims to solve that by adding a user interface to manage the JSONs and template functionality to ensure you can reuse JSON templates to avoid data duplications. It also provides an API to consume the data.</p>
+<h2>ATF Test</h2>
+<p>To successfully pass the ATF tests it might be neccesary to add the common client errors to the whitelist.</p>
+<p></p>
+<h2>Usage</h2>
+<p>There are two different steps in using the JSON Configuration Manager application. First you define the JSON and then you use it in your applications.</p>
+<h3>JSON Definition</h3>
+<p>Navigate to the JSON Configuration menu or use the x_snc_json_cfg_mgr_json_configuration.list shortcut.</p>
+<p>For the top level JSON (e.g. the one you will call in your script) you must ensure the "Root" is set to "true". Then define your main JSON structure in the variable (ensure to keep the initial script intact and don't change the variable name).</p>
+<p>If required you can create new JSON Configurations as children (e.g. set "Root" to "false"). In order to use such a building block use the "{{name_of_the_json_config}}" notation. To reuse the same child JSON Configuration multiple times you can separate the name with a pipe "|" character {{name_of_the_object_key|name_of_the_json_config}}. The last pipe will seaprate the name form the lookup value used to find the child JSON Configuration. You can also nest children in children if required.</p>
+<p>Once you save your JSON Configuration "Root" an attachment with the calculated "JSON" is added. Please note that currently the attachment is only recalculated when you make a modification to the "Root" and save it. Changing the children will not automatically update the attachment.</p>
+<h3>Usage in scripts</h3>
+<p>To retrieve the JSON use the following notation:</p>
+<pre>
+var _getCfg = new x_snc_json_cfg_mgr.getCfg(sConfigName); // initiate by name (other options are to pass in the sys_id or the glide record of a json configuration file or any valid json)
+	
+var oObj = _getCfg.getConfig(); // will return the whole JSON
+		
+var sValue = _getCfg.getValue('key1/key2/key3', 'value_if_empty', {'object to use'}); // sConfigPath (path to find object value), if empty 'value_if_empty' will be undefined, if empty {'object to use'} will be the object defined in the class initialization)
+		
+</pre>
 </div>
 </j:jelly>]]></html>
         <name>manual</name>
@@ -117,13 +137,13 @@ JSON Configuration Manager does NOT come with any kind of warranty. If you use i
         <sys_created_by>tom.hauri</sys_created_by>
         <sys_created_on>2023-07-09 05:38:43</sys_created_on>
         <sys_id>187fce6f1b776910d5be777d8b4bcbcf</sys_id>
-        <sys_mod_count>27</sys_mod_count>
+        <sys_mod_count>32</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
         <sys_policy/>
         <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
         <sys_update_name>sys_ui_page_187fce6f1b776910d5be777d8b4bcbcf</sys_update_name>
         <sys_updated_by>tom.hauri</sys_updated_by>
-        <sys_updated_on>2023-07-09 09:29:09</sys_updated_on>
+        <sys_updated_on>2023-07-10 20:02:24</sys_updated_on>
     </sys_ui_page>
 </record_update>
