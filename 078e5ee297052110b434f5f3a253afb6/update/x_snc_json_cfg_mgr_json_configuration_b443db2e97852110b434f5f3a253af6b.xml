@@ -5,21 +5,26 @@
 	'demo_parent_1': {
 		'demo_parent_1_obj_1_key_1': 'demo_parent_1_obj_1_key_1_value'
 	}, // demo parent 1
-	'demo_parent_with_a_|_2': { // test with a pipe in the name
+	'demo_parent_2_with_a_|_in_the_name': { // test with a pipe in the name
 		'demo_parent_2_obj_1_key_1': 'demo_parent_2_obj_1_key_1_value'
 	}, // demo parent 2
 	'{{demo_child_1}}': '', // demo child 1 inherited
 	'{{demo_child_1_copy|demo_child_1}}': { // demo child 1 inherited under different name
 		'child_1_object_2': {
-			'child_1_obj_2_key_2': 'child_1_obj_2_value_1_value_override',
+			'child_1_obj_2_key_1': 'child_1_obj_2_key_1_parent_value',
+			'child_1_obj_2_key_2_demo_child_2': {
+				'child_2_object_1': {
+					'child_2_obj_1_key_2': 'child_2_obj_1_key_2_parent_value',
+				}, // child 1 copy obj 2 key 2 demo child 2 override
+			}, // child 1 copy obj 2 key 2 demo child 2 obj 1 override
 		}, // child 1 copy obj 2 key 2 override
 	}, // demo child 2 copy child 1
-	'{{demo_child_1_with_a_|_copy|demo_child_1}}': { // demo child 1 inherited with a pipe in the name
+	'{{demo_child_1_with_a_|_in_the_name|demo_child_1}}': { // demo child 1 inherited with a pipe in the name
 		'child_1_object_2': {
-			'child_1_obj_2_key_1': 'child_1_obj_2_value_1_new_key',
+			'child_1_obj_2_key_1': 'child_1_obj_2_key_1_parent_value',
 		}, // child 1 copy with a pipe obj 2 key 2 override
 	}, // demo child 1 copy child 1
-}; // oCfg ]]></configuration>
+}; ]]></configuration>
         <name>demo_parent_1</name>
         <number>OCFGDEMO00000001</number>
         <root>true</root>
@@ -27,13 +32,13 @@
         <sys_created_by>tom.hauri</sys_created_by>
         <sys_created_on>2023-02-19 14:56:32</sys_created_on>
         <sys_id>b443db2e97852110b434f5f3a253af6b</sys_id>
-        <sys_mod_count>25</sys_mod_count>
+        <sys_mod_count>32</sys_mod_count>
         <sys_name>demo_parent_1</sys_name>
         <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
         <sys_policy/>
         <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
         <sys_update_name>x_snc_json_cfg_mgr_json_configuration_b443db2e97852110b434f5f3a253af6b</sys_update_name>
         <sys_updated_by>tom.hauri</sys_updated_by>
-        <sys_updated_on>2023-07-09 09:37:04</sys_updated_on>
+        <sys_updated_on>2023-07-09 15:01:30</sys_updated_on>
     </x_snc_json_cfg_mgr_json_configuration>
 </record_update>

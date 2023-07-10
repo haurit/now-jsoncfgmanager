@@ -6,21 +6,21 @@
         <display_name>Open a New Form</display_name>
         <inputs/>
         <mugshots_cache_json/>
-        <notes/>
+        <notes>Create new JSON Cfg "Child 1"</notes>
         <order>8</order>
         <step_config display_value="Open a New Form">05317cd10b10220050192f15d6673af8</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>tom.hauri</sys_created_by>
         <sys_created_on>2023-07-08 13:52:19</sys_created_on>
         <sys_id>91a972531bf3a910c1ecdc61ab4bcb74</sys_id>
-        <sys_mod_count>2</sys_mod_count>
+        <sys_mod_count>3</sys_mod_count>
         <sys_name>Open a New Form</sys_name>
         <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
         <sys_policy/>
         <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
         <sys_update_name>sys_atf_step_91a972531bf3a910c1ecdc61ab4bcb74</sys_update_name>
         <sys_updated_by>tom.hauri</sys_updated_by>
-        <sys_updated_on>2023-07-08 13:55:44</sys_updated_on>
+        <sys_updated_on>2023-07-10 05:35:27</sys_updated_on>
         <table>x_snc_json_cfg_mgr_json_configuration</table>
         <test display_value="CreateAndReadJSON">5dffe2571bb3a910c1ecdc61ab4bcbd3</test>
         <timeout/>

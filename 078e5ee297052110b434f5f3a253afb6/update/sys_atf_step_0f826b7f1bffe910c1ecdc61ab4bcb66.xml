@@ -6,49 +6,54 @@
         <display_name>Run Server Side Script</display_name>
         <inputs/>
         <mugshots_cache_json/>
-        <notes>Get Config by Name</notes>
-        <order>16</order>
+        <notes>Get Config by Record</notes>
+        <order>18</order>
         <step_config display_value="Run Server Side Script">41de4a935332120028bc29cac2dc349a</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>tom.hauri</sys_created_by>
-        <sys_created_on>2023-07-08 13:53:56</sys_created_on>
-        <sys_id>ccf9b6531bf3a910c1ecdc61ab4bcb01</sys_id>
-        <sys_mod_count>19</sys_mod_count>
+        <sys_created_on>2023-07-10 06:09:18</sys_created_on>
+        <sys_id>0f826b7f1bffe910c1ecdc61ab4bcb66</sys_id>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>Run Server Side Script</sys_name>
         <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
         <sys_policy/>
         <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
-        <sys_update_name>sys_atf_step_ccf9b6531bf3a910c1ecdc61ab4bcb01</sys_update_name>
+        <sys_update_name>sys_atf_step_0f826b7f1bffe910c1ecdc61ab4bcb66</sys_update_name>
         <sys_updated_by>tom.hauri</sys_updated_by>
-        <sys_updated_on>2023-07-10 05:38:14</sys_updated_on>
+        <sys_updated_on>2023-07-10 07:37:19</sys_updated_on>
         <table/>
         <test display_value="CreateAndReadJSON">5dffe2571bb3a910c1ecdc61ab4bcbd3</test>
         <timeout/>
         <warning_message/>
     </sys_atf_step>
-    <sys_variable_value action="delete_multiple" query="document_key=ccf9b6531bf3a910c1ecdc61ab4bcb01"/>
+    <sys_variable_value action="delete_multiple" query="document_key=0f826b7f1bffe910c1ecdc61ab4bcb66"/>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_atf_step</document>
-        <document_key>ccf9b6531bf3a910c1ecdc61ab4bcb01</document_key>
+        <document_key>0f826b7f1bffe910c1ecdc61ab4bcb66</document_key>
         <order>200</order>
         <sys_class_name>sys_variable_value</sys_class_name>
         <sys_created_by>tom.hauri</sys_created_by>
-        <sys_created_on>2023-07-08 13:53:56</sys_created_on>
-        <sys_id>9f0a3a531bf3a910c1ecdc61ab4bcb8b</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_created_on>2023-07-10 06:09:18</sys_created_on>
+        <sys_id>20e26f7f1bffe910c1ecdc61ab4bcbd1</sys_id>
+        <sys_mod_count>1</sys_mod_count>
         <sys_updated_by>tom.hauri</sys_updated_by>
-        <sys_updated_on>2023-07-10 05:28:54</sys_updated_on>
+        <sys_updated_on>2023-07-10 07:34:17</sys_updated_on>
         <value>(function (outputs, steps, params, stepResult, assertEqual) {&#13;
 &#13;
-	var sName = new String('test_parent_1'); // never do this, but still test for it!&#13;
-	var _getCfg = new getCfg(sName, 'String Object Step 1');&#13;
-	var oReturnObject = _getCfg.getConfig();&#13;
-	if ((oReturnObject) &amp;&amp; (oReturnObject.hasOwnProperty('test_parent_1'))) {&#13;
-		return true;&#13;
+	var grJSONCfg = new GlideRecord('x_snc_json_cfg_mgr_json_configuration');&#13;
+	if (grJSONCfg.get('name', 'test_parent_1')) {&#13;
+		var _getCfg = new getCfg(grJSONCfg, 'Record Step 3');&#13;
+		var oReturnObject = _getCfg.getConfig();&#13;
+		if ((oReturnObject) &amp;&amp; (oReturnObject.hasOwnProperty('test_parent_1'))) {&#13;
+			return true;&#13;
+		} else {&#13;
+			stepResult.setOutputMessage('getCfg by Record: return json cfg for "' + grJSONCfg.getUniqueValue() + '" is empty or does not contain node "test_parent_1"');&#13;
+			return false;&#13;
+		} // if obj and has property&#13;
 	} else {&#13;
-		stepResult.setOutputMessage('getCfg by Name: return json cfg for "test_parent_1" is empty or does not contain node "test_parent_1"');&#13;
+		stepResult.setOutputMessage('getCfg by Record: could not retrieve record with name "test_parent_1"');&#13;
 		return false;&#13;
-	} // if obj and has property&#13;
+	} // if sys_id&#13;
 &#13;
 })(outputs, steps, params, stepResult, assertEqual);&#13;
 </value>
@@ -56,15 +61,15 @@
     </sys_variable_value>
     <sys_variable_value action="INSERT_OR_UPDATE">
         <document>sys_atf_step</document>
-        <document_key>ccf9b6531bf3a910c1ecdc61ab4bcb01</document_key>
+        <document_key>0f826b7f1bffe910c1ecdc61ab4bcb66</document_key>
         <order>100</order>
         <sys_class_name>sys_variable_value</sys_class_name>
         <sys_created_by>tom.hauri</sys_created_by>
-        <sys_created_on>2023-07-08 13:53:56</sys_created_on>
-        <sys_id>db0a3a531bf3a910c1ecdc61ab4bcb8b</sys_id>
+        <sys_created_on>2023-07-10 06:09:18</sys_created_on>
+        <sys_id>68e26f7f1bffe910c1ecdc61ab4bcbd0</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_updated_by>tom.hauri</sys_updated_by>
-        <sys_updated_on>2023-07-08 13:53:56</sys_updated_on>
+        <sys_updated_on>2023-07-10 06:09:18</sys_updated_on>
         <value>3.1</value>
         <variable display_value="Jasmine version">42f2564b73031300440211d8faf6a777</variable>
     </sys_variable_value>

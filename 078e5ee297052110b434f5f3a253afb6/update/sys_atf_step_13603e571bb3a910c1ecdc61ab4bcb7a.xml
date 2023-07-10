@@ -11,21 +11,21 @@ With roles: x_snc_json_cfg_mgr.json_configuration_admin</description>
         <display_name>Create a User</display_name>
         <inputs/>
         <mugshots_cache_json/>
-        <notes/>
+        <notes>Create user with rights</notes>
         <order>3</order>
         <step_config display_value="Create a User">d9bc5f21ff6033008d3f5d9ad53bf12d</step_config>
         <sys_class_name>sys_atf_step</sys_class_name>
         <sys_created_by>tom.hauri</sys_created_by>
         <sys_created_on>2023-07-08 13:13:13</sys_created_on>
         <sys_id>13603e571bb3a910c1ecdc61ab4bcb7a</sys_id>
-        <sys_mod_count>6</sys_mod_count>
+        <sys_mod_count>7</sys_mod_count>
         <sys_name>Create a User</sys_name>
         <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
         <sys_policy/>
         <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
         <sys_update_name>sys_atf_step_13603e571bb3a910c1ecdc61ab4bcb7a</sys_update_name>
         <sys_updated_by>tom.hauri</sys_updated_by>
-        <sys_updated_on>2023-07-08 13:45:09</sys_updated_on>
+        <sys_updated_on>2023-07-10 05:33:58</sys_updated_on>
         <table>sys_user</table>
         <test display_value="CreateAndReadJSON">5dffe2571bb3a910c1ecdc61ab4bcbd3</test>
         <timeout/>
