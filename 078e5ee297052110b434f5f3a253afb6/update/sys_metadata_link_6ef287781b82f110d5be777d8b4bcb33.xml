@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_metadata_link">
+    <sys_metadata_link action="INSERT_OR_UPDATE">
+        <directory>update</directory>
+        <documentkey>297cfeb01b82f110d5be777d8b4bcbc0</documentkey>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_trigger">
+    <sys_trigger action="INSERT_OR_UPDATE">
+        <application/>
+        <business_calendar/>
+        <calendar/>
+        <claimed_by/>
+        <document/>
+        <document_key/>
+        <entered_time>1970-01-01 00:00:00</entered_time>
+        <error_count>0</error_count>
+        <job_classification>On Demand.JSONCfgMgrUpdateDemoData</job_classification>
+        <job_context/>
+        <job_id display_value="RunScriptJob">81c92ce9c0a8016400e5f0d2f784ea78</job_id>
+        <last_error/>
+        <log>false</log>
+        <maintenance>false</maintenance>
+        <max_drift/>
+        <name>JSONCfgMgrUpdateDemoData</name>
+        <next_action>1973-11-30 23:00:00</next_action>
+        <offset/>
+        <offset_type/>
+        <parent/>
+        <priority>100</priority>
+        <processing_duration>0</processing_duration>
+        <repeat/>
+        <replication_originator/>
+        <rollback_context_id/>
+        <run_count>0</run_count>
+        <run_dayofmonth/>
+        <run_dayofweek>1</run_dayofweek>
+        <run_month>1</run_month>
+        <run_time>1969-12-31 23:00:00</run_time>
+        <run_weekinmonth>1</run_weekinmonth>
+        <script>var grSchedScriptExec = new GlideRecord('sysauto_script');&#13;
+grSchedScriptExec .addEncodedQuery('');&#13;
+grSchedScriptExec .query();&#13;
+if (grSchedScriptExec .next()) {&#13;
+gs.executeNow(grSchedScriptExec );&#13;
+}</script>
+        <state>0</state>
+        <sys_created_by>tom.hauri</sys_created_by>
+        <sys_created_on>2023-10-20 16:16:58</sys_created_on>
+        <sys_id>297cfeb01b82f110d5be777d8b4bcbc0</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_updated_by>tom.hauri</sys_updated_by>
+        <sys_updated_on>2023-10-20 16:26:16</sys_updated_on>
+        <system_id/>
+        <time_zone/>
+        <transaction_id/>
+        <trigger_class>DEFAULT</trigger_class>
+        <trigger_type>0</trigger_type>
+        <upgrade_safe>false</upgrade_safe>
+    </sys_trigger>
+</record_update>
+]]></payload>
+        <sys_class_name>sys_metadata_link</sys_class_name>
+        <sys_created_by>tom.hauri</sys_created_by>
+        <sys_created_on>2023-10-20 16:29:24</sys_created_on>
+        <sys_id>6ef287781b82f110d5be777d8b4bcb33</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>JSONCfgMgrUpdateDemoData</sys_name>
+        <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
+        <sys_update_name>sys_metadata_link_6ef287781b82f110d5be777d8b4bcb33</sys_update_name>
+        <sys_updated_by>tom.hauri</sys_updated_by>
+        <sys_updated_on>2023-10-20 16:32:12</sys_updated_on>
+        <tablename>sys_trigger</tablename>
+    </sys_metadata_link>
+</record_update>
