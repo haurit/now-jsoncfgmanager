@@ -14,7 +14,7 @@
 <h1>JSON Configuration Manager</h1>
 <p>Welcome to JSON Configuration Manager - created and maintained by&#160;<a href="mailto:tom@hauri.biz">Tom Hauri</a>.</p>
 <h2>Overview</h2>
-<p>JSON Configuration Manager provides an easy way to manage and consume complex JSON structures with a built in inheritence features that allows you to reuse common JSON structures.</p>
+<p>JSON Configuration Manager provides an easy way to manage and consume complex JSON structures with a built in inheritance features that allows you to reuse common JSON structures.</p>
 <h2>Disclaimer</h2>
 <p>JSON Configuration Manager is NOT an officially supported ServiceNow product.
 
@@ -27,11 +27,12 @@ JSON Configuration Manager does NOT come with any kind of warranty. If you use i
 <ol>
 <li>Initial Release</li>
 </ol>
-<h3>1.0.1 - 07.2023</h3>
+<h3>1.0.4 - 11.2023</h3>
 <ol>
 <li>Added administration menues</li>
 <li>Added manual page</li>
-<li>Additional ATF Tests</li>
+<li>Added ATF Tests</li>
+<li>Changed getValue to return the substitute value if value is gs.nil()</li>
 </ol>
 <h2>Problem Statement</h2>
 <p>Sustainable solutions are configurable so that you don't have to change the code to adapt to changing user requirements.</p>
@@ -119,6 +120,7 @@ JSON Configuration Manager does NOT come with any kind of warranty. If you use i
 <p>For the top level JSON (e.g. the one you will call in your script) you must ensure the "Root" is set to "true". Then define your main JSON structure in the variable (ensure to keep the initial script intact and don't change the variable name).</p>
 <p>If required you can create new JSON Configurations as children (e.g. set "Root" to "false"). In order to use such a building block use the "{{name_of_the_json_config}}" notation. To reuse the same child JSON Configuration multiple times you can separate the name with a pipe "|" character {{name_of_the_object_key|name_of_the_json_config}}. The last pipe will seaprate the name form the lookup value used to find the child JSON Configuration. You can also nest children in children if required.</p>
 <p>Once you save your JSON Configuration "Root" an attachment with the calculated "JSON" is added. Please note that currently the attachment is only recalculated when you make a modification to the "Root" and save it. Changing the children will not automatically update the attachment.</p>
+<p>Please have a look at the demo data&#160;<strong>demo_parent_1</strong>&#160;for inspiration on how this works in real. To do the first steps just copy the demo data or start with a small root configuration and expand step by step.</p>
 <h3>Usage in scripts</h3>
 <p>To retrieve the JSON use the following notation:</p>
 <pre>
@@ -137,13 +139,13 @@ var sValue = _getCfg.getValue('key1/key2/key3', 'value_if_empty', {'object to us
         <sys_created_by>tom.hauri</sys_created_by>
         <sys_created_on>2023-07-09 05:38:43</sys_created_on>
         <sys_id>187fce6f1b776910d5be777d8b4bcbcf</sys_id>
-        <sys_mod_count>32</sys_mod_count>
+        <sys_mod_count>35</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
         <sys_policy/>
         <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
         <sys_update_name>sys_ui_page_187fce6f1b776910d5be777d8b4bcbcf</sys_update_name>
         <sys_updated_by>tom.hauri</sys_updated_by>
-        <sys_updated_on>2023-07-10 20:02:24</sys_updated_on>
+        <sys_updated_on>2023-10-20 12:36:44</sys_updated_on>
     </sys_ui_page>
 </record_update>
