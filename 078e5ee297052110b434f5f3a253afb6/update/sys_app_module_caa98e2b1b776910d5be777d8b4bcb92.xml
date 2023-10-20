@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module">
+    <sys_app_module action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <application display_value="JSON Configuration Manager">7850266697052110b434f5f3a253afdf</application>
+        <assessment/>
+        <device_type/>
+        <filter table="sys_script_include">sys_scope=078e5ee297052110b434f5f3a253afb6^EQ<item display_table="sys_scope" display_value="JSON Cfg Manager" endquery="false" field="sys_scope" goto="false" newquery="false" operator="=" or="false" value="078e5ee297052110b434f5f3a253afb6"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </filter>
+        <hint/>
+        <homepage/>
+        <image/>
+        <link_type>LIST</link_type>
+        <map_page/>
+        <mobile_title>JSON CM Script Includes</mobile_title>
+        <mobile_view_name>Mobile</mobile_view_name>
+        <name>sys_script_include</name>
+        <order>1400</order>
+        <override_menu_roles>false</override_menu_roles>
+        <query/>
+        <report/>
+        <roles/>
+        <sys_class_name>sys_app_module</sys_class_name>
+        <sys_created_by>tom.hauri</sys_created_by>
+        <sys_created_on>2023-07-09 05:02:05</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>caa98e2b1b776910d5be777d8b4bcb92</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>JSON CM Script Includes</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
+        <sys_update_name>sys_app_module_caa98e2b1b776910d5be777d8b4bcb92</sys_update_name>
+        <sys_updated_by>tom.hauri</sys_updated_by>
+        <sys_updated_on>2023-07-09 05:25:20</sys_updated_on>
+        <timeline_page/>
+        <title>JSON CM Script Includes</title>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+        <window_name/>
+    </sys_app_module>
+</record_update>

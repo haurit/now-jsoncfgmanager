@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_message">
+    <sys_ui_message action="INSERT_OR_UPDATE">
+        <application/>
+        <code/>
+        <commented_message/>
+        <key>error_json_invalid</key>
+        <language>en</language>
+        <message>JSON is not valid.</message>
+        <sys_class_name>sys_ui_message</sys_class_name>
+        <sys_created_by>tom.hauri</sys_created_by>
+        <sys_created_on>2023-07-09 09:43:17</sys_created_on>
+        <sys_id>9d3a8f2f1b3b6910d5be777d8b4bcb4a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>error_json_invalid</sys_name>
+        <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
+        <sys_update_name>sys_ui_message_9d3a8f2f1b3b6910d5be777d8b4bcb4a</sys_update_name>
+        <sys_updated_by>tom.hauri</sys_updated_by>
+        <sys_updated_on>2023-07-09 09:43:17</sys_updated_on>
+    </sys_ui_message>
+</record_update>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_properties_category">
+    <sys_properties_category action="INSERT_OR_UPDATE">
+        <name>JSON Configuration Manager</name>
+        <sys_class_name>sys_properties_category</sys_class_name>
+        <sys_created_by>tom.hauri</sys_created_by>
+        <sys_created_on>2023-07-09 04:58:34</sys_created_on>
+        <sys_id>73d8422b1b776910d5be777d8b4bcb58</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>JSON Configuration Manager</sys_name>
+        <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
+        <sys_update_name>sys_properties_category_73d8422b1b776910d5be777d8b4bcb58</sys_update_name>
+        <sys_updated_by>tom.hauri</sys_updated_by>
+        <sys_updated_on>2023-07-09 04:59:23</sys_updated_on>
+        <title><![CDATA[<p><strong>JSON Configuration Manager Properties</strong></p>]]></title>
+    </sys_properties_category>
+    <sys_translated_text action="delete_multiple" query="documentkey=73d8422b1b776910d5be777d8b4bcb58"/>
+</record_update>

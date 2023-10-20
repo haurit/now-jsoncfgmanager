@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_whitelist">
+    <sys_atf_whitelist action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <description>This client error occurred on the page in Chrome 114.0.0.0</description>
+        <error_location>client_error</error_location>
+        <error_message>Failed to subscribe to user presence</error_message>
+        <report_level>ignored</report_level>
+        <sys_class_name>sys_atf_whitelist</sys_class_name>
+        <sys_created_by>tom.hauri</sys_created_by>
+        <sys_created_on>2023-07-08 13:47:46</sys_created_on>
+        <sys_id>fca8fadf1bb3a910c1ecdc61ab4bcbc8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Failed to subscribe to user presence</sys_name>
+        <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
+        <sys_update_name>sys_atf_whitelist_fca8fadf1bb3a910c1ecdc61ab4bcbc8</sys_update_name>
+        <sys_updated_by>tom.hauri</sys_updated_by>
+        <sys_updated_on>2023-07-08 13:47:46</sys_updated_on>
+        <test display_value="CreateAndReadJSON">5dffe2571bb3a910c1ecdc61ab4bcbd3</test>
+    </sys_atf_whitelist>
+</record_update>

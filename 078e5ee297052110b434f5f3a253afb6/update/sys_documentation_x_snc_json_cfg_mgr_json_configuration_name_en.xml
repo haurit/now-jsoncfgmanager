@@ -11,7 +11,6 @@
             <sys_class_name>sys_documentation</sys_class_name>
             <sys_created_by>tom.hauri</sys_created_by>
             <sys_created_on>2023-02-19 11:45:19</sys_created_on>
-            <sys_id>6797a2ea97052110b434f5f3a253af42</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_name>Name</sys_name>
             <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>

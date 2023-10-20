@@ -5,21 +5,21 @@
         <api_name>x_snc_json_cfg_mgr.getCfg</api_name>
         <caller_access/>
         <client_callable>false</client_callable>
-        <description>Get Configuration and Values&#13;
-TODO: https://staging-docs-servicenow.zoominsoftware.io/bundle/vancouver-api-reference/page/app-store/dev_portal/API_reference/GlideJsonPath/concept/GlideJsonPathAPI.html#title_GlideJsonPath-read_S</description>
+        <description>Get Configuration and Values</description>
         <name>getCfg</name>
         <script><![CDATA[var getCfg = Class.create();
 getCfg.prototype = {
-	initialize: function(oConfig, sLogName) {
+	initialize: function (oConfig, sLogName) {
+		this.sLogPrefix = 'getCfg - ';
 		if (!oConfig) {
 			this.oConfig = {};
 			return;
 		} // if not ocfg
 		var sType = typeof oConfig;
-		var sSubType = (sType == 'object') ? Object.prototype.toString.call(oConfig): '';
+		var sSubType = (sType == 'object') ? Object.prototype.toString.call(oConfig) : '';
 		var bIsGlideRecord = (sSubType.indexOf('ScopedGlideRecord') == -1) ? false : true;
 		if (sLogName) {
-			gs.info('getCfg.initialize sLogName: ' + sLogName + ' sType: ' + sType + ' sSubType: ' + sSubType + ' bIsGlideRecord: ' + bIsGlideRecord);
+			gs.info(this.sLogPrefix + 'initialize sLogName: ' + sLogName + ' sType: ' + sType + ' sSubType: ' + sSubType + ' bIsGlideRecord: ' + bIsGlideRecord);
 		} // if log
 		this._CfgMgr = new ConfigurationManager();
 		if (bIsGlideRecord) {
@@ -27,9 +27,9 @@ getCfg.prototype = {
 		} else if ((sType == 'object') && (sSubType.indexOf('String') == -1)) {
 			this.oConfig = oConfig;
 		} else if ((sType == 'string') || (sSubType.indexOf('String') != -1)) {
-			this.oConfig  = this._CfgMgr.getConfigByName(oConfig);
+			this.oConfig = this._CfgMgr.getConfigByName(oConfig);
 			if (!this.oConfig) {
-				this.oConfig  = this._CfgMgr.getConfigById(oConfig);
+				this.oConfig = this._CfgMgr.getConfigById(oConfig);
 			} // if not found by name
 		} // if record, object or string
 		if (!this.oConfig) {
@@ -37,48 +37,59 @@ getCfg.prototype = {
 		} // if not valid config
 	}, // function initialize
 
-	getConfig: function() {
+	getConfig: function () {
 		return this.oConfig;
 	}, // function getConfig
 
+	getJSONPath: function (oConfig) {
+		try {
+			if (!oConfig) {
+				oConfig = this.oConfig;
+			} // if no object
+			return new GlideJsonPath(JSON.stringify(oConfig));
+		} catch (oEx) {
+			gs.error('getCfg getJSONPath error parsing and converting JSON: ' + String(oEx));
+		} // try parse JSON
+	}, // function
+
 	// Function to retrieve up to 8 levels of config
 	// For recursive configs pass sub object
-	getValue: function(sConfigPath, sReplace, oConfig) {
+	getValue: function (sConfigPath, sReplace, oConfig) {
 		if (!oConfig) {
 			oConfig = this.oConfig;
 		} // if no object
 		sConfigPath = sConfigPath.replace(/^\//, '').replace(/\/$/, ''); // remove leading and trailing /
 		var aConfigPath = sConfigPath.split('/');
 		var iMaxLength = (Array.isArray(aConfigPath)) ? aConfigPath.length : 0;
-		if ((iMaxLength > 0) && (oConfig) && (oConfig[aConfigPath[0]])){
+		if ((iMaxLength > 0) && (oConfig) && (!gs.nil(oConfig[aConfigPath[0]]))) {
 			if (iMaxLength == 1) {
 				return oConfig[aConfigPath[0]];
 			} else {
-				if ((iMaxLength > 1) && (oConfig[aConfigPath[0]][aConfigPath[1]])){
+				if ((iMaxLength > 1) && (!gs.nil(oConfig[aConfigPath[0]][aConfigPath[1]]))) {
 					if (iMaxLength == 2) {
 						return oConfig[aConfigPath[0]][aConfigPath[1]];
 					} else {
-						if ((iMaxLength > 2) && (oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]])){
+						if ((iMaxLength > 2) && (!gs.nil(oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]]))) {
 							if (iMaxLength == 3) {
 								return oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]];
 							} else {
-								if ((iMaxLength > 3) && (oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]])){
+								if ((iMaxLength > 3) && (!gs.nil(oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]]))) {
 									if (iMaxLength == 4) {
 										return oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]];
 									} else {
-										if ((iMaxLength > 4) && (oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]][aConfigPath[4]])){
+										if ((iMaxLength > 4) && (!gs.nil(oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]][aConfigPath[4]]))) {
 											if (iMaxLength == 5) {
 												return oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]][aConfigPath[4]];
 											} else {
-												if ((iMaxLength > 5) && (oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]][aConfigPath[4]][aConfigPath[5]])){
+												if ((iMaxLength > 5) && (!gs.nil(oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]][aConfigPath[4]][aConfigPath[5]]))) {
 													if (iMaxLength == 6) {
 														return oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]][aConfigPath[4]][aConfigPath[5]];
 													} else {
-														if ((iMaxLength > 6) && (oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]][aConfigPath[4]][aConfigPath[5]][aConfigPath[6]])){
+														if ((iMaxLength > 6) && (!gs.nil(oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]][aConfigPath[4]][aConfigPath[5]][aConfigPath[6]]))) {
 															if (iMaxLength == 7) {
 																return oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]][aConfigPath[4]][aConfigPath[5][aConfigPath[6]]];
 															} else {
-																if ((iMaxLength > 8) && (oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]][aConfigPath[4]][aConfigPath[5]][aConfigPath[6]][aConfigPath[7]])){
+																if ((iMaxLength > 8) && (!gs.nil(oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]][aConfigPath[4]][aConfigPath[5]][aConfigPath[6]][aConfigPath[7]]))) {
 																	if (iMaxLength == 9) {
 																		return oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]][aConfigPath[4]][aConfigPath[5][aConfigPath[6]]][aConfigPath[7]];
 																	} // if found 8 level
@@ -102,23 +113,72 @@ getCfg.prototype = {
 		} // if replace
 	}, // function getConfigValue
 
+	setValue: function (sConfigPath, oValue, oConfig) {
+		// Function to set up to 8 levels of object
+		if (!oConfig) {
+			oConfig = this.oConfig;
+		} // if no object
+		sConfigPath = sConfigPath.replace(/^\//, '').replace(/\/$/, ''); // remove leading and trailing /
+		var aConfigPath = sConfigPath.split('/');
+		var iMaxLength = (Array.isArray(aConfigPath)) ? aConfigPath.length : 0;
+		aConfigPath.forEach(function (sPath, i) {
+			if ((i == 0) && (iMaxLength == 1)) {
+				oConfig[sPath] = oValue;
+			} else if ((i == 0) && (iMaxLength > 1) && (!oConfig.hasOwnProperty(sPath))) {
+				oConfig[sPath] = {};
+			} else if ((i == 1) && (iMaxLength == 2)) {
+				oConfig[aConfigPath[0]][sPath] = oValue;
+			} else if ((i == 1) && (iMaxLength > 2) && (!oConfig[aConfigPath[0]].hasOwnProperty(sPath))) {
+				oConfig[aConfigPath[0]][sPath] = {};
+			} else if ((i == 2) && (iMaxLength == 3)) {
+				oConfig[aConfigPath[0]][aConfigPath[1]][sPath] = oValue;
+			} else if ((i == 2) && (iMaxLength > 3) && (!oConfig[aConfigPath[0]][aConfigPath[1]].hasOwnProperty(sPath))) {
+				oConfig[aConfigPath[0]][aConfigPath[1]][sPath] = {};
+			} else if ((i == 3) && (iMaxLength == 4)) {
+				oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][sPath] = oValue;
+			} else if ((i == 3) && (iMaxLength > 4) && (!oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]].hasOwnProperty(sPath))) {
+				oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][sPath] = {};
+			} else if ((i == 4) && (iMaxLength == 5)) {
+				oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]][sPath] = oValue;
+			} else if ((i == 4) && (iMaxLength > 5) && (!oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]].hasOwnProperty(sPath))) {
+				oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]][sPath] = {};
+			} else if ((i == 5) && (iMaxLength == 6)) {
+				oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]][aConfigPath[4]][sPath] = oValue;
+			} else if ((i == 5) && (iMaxLength > 6) && (!oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]][aConfigPath[4]].hasOwnProperty(sPath))) {
+				oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]][aConfigPath[4]][sPath] = {};
+			} else if ((i == 6) && (iMaxLength == 7)) {
+				oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]][aConfigPath[4]][aConfigPath[5]][sPath] = oValue;
+			} else if ((i == 6) && (iMaxLength > 7) && (!oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]][aConfigPath[4]][aConfigPath[5]].hasOwnProperty(sPath))) {
+				oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]][aConfigPath[4]][aConfigPath[5]][sPath] = {};
+			} else if ((i == 7) && (iMaxLength == 8)) {
+				oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]][aConfigPath[4]][aConfigPath[5]][aConfigPath[6]][sPath] = oValue;
+			} else if ((i == 7) && (iMaxLength > 8) && (!oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]][aConfigPath[4]][aConfigPath[5]][aConfigPath[6]].hasOwnProperty(sPath))) {
+				oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]][aConfigPath[4]][aConfigPath[5]][aConfigPath[6]][sPath] = {};
+			} else if ((i == 7) && (iMaxLength == 9)) {
+				oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]][aConfigPath[4]][aConfigPath[5]][aConfigPath[6]][aConfigPath[7]][sPath] = oValue;
+			} else if ((i == 7) && (iMaxLength > 9) && (!oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]][aConfigPath[4]][aConfigPath[5]][aConfigPath[6]][aConfigPath[7]].hasOwnProperty(sPath))) {
+				oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]][aConfigPath[4]][aConfigPath[5]][aConfigPath[6]][aConfigPath[7]][sPath] = {};
+			} // if level deep
+		}, this); // each path
+	}, // function _setValue
+
 	type: 'getCfg',
-	version: '1.0.0',
+	version: '1.0.4',
 	author: 'Tom Hauri',
 	email: 'tom@hauri.biz'
-	
+
 };]]></script>
         <sys_class_name>sys_script_include</sys_class_name>
         <sys_created_by>tom.hauri</sys_created_by>
         <sys_created_on>2023-02-19 12:14:05</sys_created_on>
         <sys_id>1449aa2e97052110b434f5f3a253afee</sys_id>
-        <sys_mod_count>30</sys_mod_count>
+        <sys_mod_count>39</sys_mod_count>
         <sys_name>getCfg</sys_name>
         <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
         <sys_update_name>sys_script_include_1449aa2e97052110b434f5f3a253afee</sys_update_name>
         <sys_updated_by>tom.hauri</sys_updated_by>
-        <sys_updated_on>2023-05-08 18:01:05</sys_updated_on>
+        <sys_updated_on>2023-09-17 12:54:13</sys_updated_on>
     </sys_script_include>
 </record_update>
