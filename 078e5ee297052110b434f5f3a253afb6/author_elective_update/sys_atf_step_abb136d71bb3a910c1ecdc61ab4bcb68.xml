@@ -4,7 +4,7 @@
         <copied_from/>
         <description>Set the following values on the form:
 Name = NoRightsUserTest
-and Root = true
+and Root = true 
 
 Warning: Using a table that extends Application File [sys_metadata] may cause unexpected behavior for other tests running in parallel&#13;
 See the documentation for Test Design Considerations</description>
