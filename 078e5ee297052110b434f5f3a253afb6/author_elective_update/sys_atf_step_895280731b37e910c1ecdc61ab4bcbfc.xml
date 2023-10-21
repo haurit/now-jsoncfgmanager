@@ -2,7 +2,7 @@
     <sys_atf_step action="DELETE">
         <active>true</active>
         <copied_from/>
-        <description>Confirm that the following related lists are visible on the 'JSON Configuration' form: Parent JSON Config</description>
+        <description>Confirm that the following related lists are visible on the  'JSON Configuration' form: Parent JSON Config</description>
         <display_name>Validate Related List Visibility</display_name>
         <inputs/>
         <mugshots_cache_json/>
