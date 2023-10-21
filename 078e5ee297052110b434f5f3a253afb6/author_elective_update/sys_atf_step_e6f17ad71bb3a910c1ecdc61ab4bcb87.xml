@@ -2,7 +2,7 @@
     <sys_atf_step action="DELETE">
         <active>true</active>
         <copied_from/>
-        <description>Submit the current form and confirm form submitted to server</description>
+        <description>Submit the current form and confir m form submitted to server</description>
         <display_name>Submit a Form</display_name>
         <inputs/>
         <mugshots_cache_json/>
