@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_metadata_link">
+    <sys_metadata_link action="DELETE">
+        <directory>update</directory>
+        <documentkey>297cfeb01b82f110d5be777d8b4bcbc0</documentkey>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_trigger">
+    <sys_trigger action="INSERT_OR_UPDATE">
+        <application/>
+        <business_calendar/>
+        <calendar/>
+        <claimed_by/>
+        <document/>
+        <document_key/>
+        <entered_time>1970-01-01 00:00:00</entered_time>
+        <error_count>0</error_count>
+        <job_classification>On Demand.JSONCfgMgrUpdateDemoData</job_classification>
+        <job_context/>
+        <job_id display_value="RunScriptJob">81c92ce9c0a8016400e5f0d2f784ea78</job_id>
+        <last_error/>
+        <log>false</log>
+        <maintenance>false</maintenance>
+        <max_drift/>
+        <name>JSONCfgMgrUpdateDemoData</name>
+        <next_action>1973-11-30 23:00:00</next_action>
+        <offset/>
+        <offset_type/>
+        <parent/>
+        <priority>100</priority>
+        <processing_duration>0</processing_duration>
+        <repeat/>
+        <replication_originator/>
+        <rollback_context_id/>
+        <run_count>0</run_count>
+        <run_dayofmonth/>
+        <run_dayofweek>1</run_dayofweek>
+        <run_month>1</run_month>
+        <run_time>1969-12-31 23:00:00</run_time>
+        <run_weekinmonth>1</run_weekinmonth>
+        <script>var grSchedScriptExec = new GlideRecord('sysauto_script');&#13;
+grSchedScriptExec.addEncodedQuery('sys_scope=078e5ee297052110b434f5f3a253afb6^name=UpdateDemoData');&#13;
+grSchedScriptExec.query();&#13;
+if (grSchedScriptExec.next()) {&#13;
+gs.executeNow(grSchedScriptExec );&#13;
+}</script>
+        <state>0</state>
+        <sys_created_by>tom.hauri</sys_created_by>
+        <sys_created_on>2023-10-20 16:16:58</sys_created_on>
+        <sys_id>297cfeb01b82f110d5be777d8b4bcbc0</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_updated_by>tom.hauri</sys_updated_by>
+        <sys_updated_on>2023-10-20 16:26:16</sys_updated_on>
+        <system_id/>
+        <time_zone/>
+        <transaction_id/>
+        <trigger_class>DEFAULT</trigger_class>
+        <trigger_type>0</trigger_type>
+        <upgrade_safe>false</upgrade_safe>
+    </sys_trigger>
+</record_update>
+]]></payload>
+        <sys_class_name>sys_metadata_link</sys_class_name>
+        <sys_created_by>tom.hauri</sys_created_by>
+        <sys_created_on>2023-10-20 16:29:24</sys_created_on>
+        <sys_id>6ef287781b82f110d5be777d8b4bcb33</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
+        <sys_update_name>sys_metadata_link_6ef287781b82f110d5be777d8b4bcb33</sys_update_name>
+        <sys_updated_by>tom.hauri</sys_updated_by>
+        <sys_updated_on>2023-10-21 13:01:53</sys_updated_on>
+        <tablename>sys_trigger</tablename>
+    </sys_metadata_link>
+<sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</application>
+        <file_path/>
+        <instance_id>e81159badbaba1d805ef172913961918</instance_id>
+        <instance_name>empthaurikpmg</instance_name>
+        <name>sys_metadata_link_6ef287781b82f110d5be777d8b4bcb33</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_metadata_link"&gt;
+    &lt;sys_metadata_link action="INSERT_OR_UPDATE"&gt;
+        &lt;directory&gt;update&lt;/directory&gt;
+        &lt;documentkey&gt;297cfeb01b82f110d5be777d8b4bcbc0&lt;/documentkey&gt;
+        &lt;payload&gt;&lt;![CDATA[&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_trigger"&gt;
+    &lt;sys_trigger action="INSERT_OR_UPDATE"&gt;
+        &lt;application/&gt;
+        &lt;business_calendar/&gt;
+        &lt;calendar/&gt;
+        &lt;claimed_by/&gt;
+        &lt;document/&gt;
+        &lt;document_key/&gt;
+        &lt;entered_time&gt;1970-01-01 00:00:00&lt;/entered_time&gt;
+        &lt;error_count&gt;0&lt;/error_count&gt;
+        &lt;job_classification&gt;On Demand.JSONCfgMgrUpdateDemoData&lt;/job_classification&gt;
+        &lt;job_context/&gt;
+        &lt;job_id display_value="RunScriptJob"&gt;81c92ce9c0a8016400e5f0d2f784ea78&lt;/job_id&gt;
+        &lt;last_error/&gt;
+        &lt;log&gt;false&lt;/log&gt;
+        &lt;maintenance&gt;false&lt;/maintenance&gt;
+        &lt;max_drift/&gt;
+        &lt;name&gt;JSONCfgMgrUpdateDemoData&lt;/name&gt;
+        &lt;next_action&gt;1973-11-30 23:00:00&lt;/next_action&gt;
+        &lt;offset/&gt;
+        &lt;offset_type/&gt;
+        &lt;parent/&gt;
+        &lt;priority&gt;100&lt;/priority&gt;
+        &lt;processing_duration&gt;0&lt;/processing_duration&gt;
+        &lt;repeat/&gt;
+        &lt;replication_originator/&gt;
+        &lt;rollback_context_id/&gt;
+        &lt;run_count&gt;0&lt;/run_count&gt;
+        &lt;run_dayofmonth/&gt;
+        &lt;run_dayofweek&gt;1&lt;/run_dayofweek&gt;
+        &lt;run_month&gt;1&lt;/run_month&gt;
+        &lt;run_time&gt;1969-12-31 23:00:00&lt;/run_time&gt;
+        &lt;run_weekinmonth&gt;1&lt;/run_weekinmonth&gt;
+        &lt;script&gt;var grSchedScriptExec = new GlideRecord('sysauto_script');&amp;#13;
+grSchedScriptExec.addEncodedQuery('sys_scope=078e5ee297052110b434f5f3a253afb6^name=UpdateDemoData');&amp;#13;
+grSchedScriptExec.query();&amp;#13;
+if (grSchedScriptExec.next()) {&amp;#13;
+gs.executeNow(grSchedScriptExec );&amp;#13;
+}&lt;/script&gt;
+        &lt;state&gt;0&lt;/state&gt;
+        &lt;sys_created_by&gt;tom.hauri&lt;/sys_created_by&gt;
+        &lt;sys_created_on&gt;2023-10-20 16:16:58&lt;/sys_created_on&gt;
+        &lt;sys_id&gt;297cfeb01b82f110d5be777d8b4bcbc0&lt;/sys_id&gt;
+        &lt;sys_mod_count&gt;3&lt;/sys_mod_count&gt;
+        &lt;sys_updated_by&gt;tom.hauri&lt;/sys_updated_by&gt;
+        &lt;sys_updated_on&gt;2023-10-20 16:26:16&lt;/sys_updated_on&gt;
+        &lt;system_id/&gt;
+        &lt;time_zone/&gt;
+        &lt;transaction_id/&gt;
+        &lt;trigger_class&gt;DEFAULT&lt;/trigger_class&gt;
+        &lt;trigger_type&gt;0&lt;/trigger_type&gt;
+        &lt;upgrade_safe&gt;false&lt;/upgrade_safe&gt;
+    &lt;/sys_trigger&gt;
+&lt;/record_update&gt;
+]]&gt;&lt;/payload&gt;
+        &lt;sys_class_name&gt;sys_metadata_link&lt;/sys_class_name&gt;
+        &lt;sys_created_by&gt;tom.hauri&lt;/sys_created_by&gt;
+        &lt;sys_created_on&gt;2023-10-20 16:29:24&lt;/sys_created_on&gt;
+        &lt;sys_id&gt;6ef287781b82f110d5be777d8b4bcb33&lt;/sys_id&gt;
+        &lt;sys_mod_count&gt;5&lt;/sys_mod_count&gt;
+        &lt;sys_name/&gt;
+        &lt;sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr"&gt;078e5ee297052110b434f5f3a253afb6&lt;/sys_package&gt;
+        &lt;sys_policy/&gt;
+        &lt;sys_scope display_value="JSON Cfg Manager"&gt;078e5ee297052110b434f5f3a253afb6&lt;/sys_scope&gt;
+        &lt;sys_update_name&gt;sys_metadata_link_6ef287781b82f110d5be777d8b4bcb33&lt;/sys_update_name&gt;
+        &lt;sys_updated_by&gt;tom.hauri&lt;/sys_updated_by&gt;
+        &lt;sys_updated_on&gt;2023-10-21 13:01:53&lt;/sys_updated_on&gt;
+        &lt;tablename&gt;sys_trigger&lt;/tablename&gt;
+    &lt;/sys_metadata_link&gt;
+&lt;/record_update&gt;</payload>
+        <payload_hash>-295750148</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source/>
+        <source_table>sys_upgrade_history</source_table>
+        <state>previous</state>
+        <sys_created_by>tom.hauri</sys_created_by>
+        <sys_created_on>2023-10-21 16:26:20</sys_created_on>
+        <sys_id>13dbc4591bc63510d5be777d8b4bcbe8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>18b530f199e0000001</sys_recorded_at>
+        <sys_updated_by>tom.hauri</sys_updated_by>
+        <sys_updated_on>2023-10-21 16:26:20</sys_updated_on>
+        <type>Metadata Snapshot</type>
+        <update_guid>dfdbc4596fc635106c32198150265ae7</update_guid>
+        <update_guid_history>309b4059fcc63510c02ee604218c03f6:-373303571,547708158fc635100eecfacaaa38aabb:579925721,501d57c5e50635109e96b8811ffcd1c5:476167636,286ad745f6063510aa5a6b383fe34967:198596822,2794930122063510ab5dc56f61f34757:476167636,75e643bcb382f110449648db886b19cb:509532558,24058bf80982f110ad5b10ac367e4bfb:645041093,ef938b78a482f11032c005fd2429bb98:-1319773103,66f2c7784d82f110a361d23560bc86f5:-845859117</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>tom.hauri</sys_created_by>
+        <sys_created_on>2023-10-21 16:27:10</sys_created_on>
+        <sys_db_object display_value="" name="sys_metadata_link">sys_metadata_link</sys_db_object>
+        <sys_id>83154be20a4e41d8bdd601fc76e01be4</sys_id>
+        <sys_metadata>6ef287781b82f110d5be777d8b4bcb33</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
+        <sys_scope_delete display_value="">27bb90b35399496e88564d62abd41224</sys_scope_delete>
+        <sys_update_name>sys_metadata_link_6ef287781b82f110d5be777d8b4bcb33</sys_update_name>
+        <sys_update_version display_value="sys_metadata_link_6ef287781b82f110d5be777d8b4bcb33">13dbc4591bc63510d5be777d8b4bcbe8</sys_update_version>
+        <sys_updated_by>tom.hauri</sys_updated_by>
+        <sys_updated_on>2023-10-21 16:27:10</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>
