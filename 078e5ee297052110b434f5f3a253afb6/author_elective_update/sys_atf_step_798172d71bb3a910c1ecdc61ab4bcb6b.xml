@@ -2,7 +2,7 @@
     <sys_atf_step action="DELETE">
         <active>true</active>
         <copied_from/>
-        <description>Open a new 'JSON Configuration' form</description>
+        <description>Open a new 'JSON Configuration' form1</description>
         <display_name>Open a New Form</display_name>
         <inputs/>
         <mugshots_cache_json/>
