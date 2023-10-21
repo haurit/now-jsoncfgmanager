@@ -18,7 +18,8 @@
         <run_time>1969-12-31 23:00:00</run_time>
         <run_type>on_demand</run_type>
         <script><![CDATA[var grConfig = new GlideRecord('x_snc_json_cfg_mgr_json_configuration');
-if (grConfig.get('name', 'demo_parent_1')) {
+grConfig.addEncodedQuery('numberSTARTSWITHOCFGDEMO');
+while (grConfig.next()) {
 	grConfig.update();
 	grConfig.update(); // Do what setForceUpdate(true) would do in global (don't ask!)
 } // if demo parent]]></script>
@@ -26,14 +27,14 @@ if (grConfig.get('name', 'demo_parent_1')) {
         <sys_created_by>tom.hauri</sys_created_by>
         <sys_created_on>2023-10-20 16:51:42</sys_created_on>
         <sys_id>90f7c7fc1b82f110d5be777d8b4bcb54</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_mod_count>2</sys_mod_count>
         <sys_name>UpdateDemoData</sys_name>
         <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
         <sys_policy/>
         <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
         <sys_update_name>sysauto_script_90f7c7fc1b82f110d5be777d8b4bcb54</sys_update_name>
         <sys_updated_by>tom.hauri</sys_updated_by>
-        <sys_updated_on>2023-10-21 08:41:43</sys_updated_on>
+        <sys_updated_on>2023-10-21 12:35:42</sys_updated_on>
         <time_zone/>
         <upgrade_safe>false</upgrade_safe>
     </sysauto_script>
