@@ -52,7 +52,7 @@ gs.executeNow(grSchedScriptExec );&#13;
         <time_zone/>
         <transaction_id/>
         <trigger_class>DEFAULT</trigger_class>
-        <trigger_type>0</trigger_type>
+        <trigger_type>2</trigger_type>
         <upgrade_safe>false</upgrade_safe>
     </sys_trigger>
 </record_update>
@@ -61,14 +61,14 @@ gs.executeNow(grSchedScriptExec );&#13;
         <sys_created_by>tom.hauri</sys_created_by>
         <sys_created_on>2023-10-20 16:29:24</sys_created_on>
         <sys_id>6ef287781b82f110d5be777d8b4bcb33</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name/>
         <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
         <sys_policy/>
         <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
         <sys_update_name>sys_metadata_link_6ef287781b82f110d5be777d8b4bcb33</sys_update_name>
         <sys_updated_by>tom.hauri</sys_updated_by>
-        <sys_updated_on>2023-10-21 12:24:58</sys_updated_on>
+        <sys_updated_on>2023-10-21 12:50:10</sys_updated_on>
         <tablename>sys_trigger</tablename>
     </sys_metadata_link>
 </record_update>
