@@ -4,8 +4,7 @@
         <description/>
         <name>UpdateDemoData</name>
         <record_for_rollback>false</record_for_rollback>
-        <script><![CDATA[gs.error('tomtom test fix script is running');
-var grConfig = new GlideRecord('x_snc_json_cfg_mgr_json_configuration');
+        <script><![CDATA[var grConfig = new GlideRecord('x_snc_json_cfg_mgr_json_configuration');
 grConfig.addEncodedQuery('numberSTARTSWITHOCFGDEMO');
 grConfig.query();
 while (grConfig.next()) {
@@ -16,14 +15,14 @@ while (grConfig.next()) {
         <sys_created_by>tom.hauri</sys_created_by>
         <sys_created_on>2023-10-21 15:40:52</sys_created_on>
         <sys_id>42614c5d1b863510d5be777d8b4bcb4e</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>UpdateDemoData</sys_name>
         <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
         <sys_policy/>
         <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
         <sys_update_name>sys_script_fix_42614c5d1b863510d5be777d8b4bcb4e</sys_update_name>
         <sys_updated_by>tom.hauri</sys_updated_by>
-        <sys_updated_on>2023-10-21 16:00:15</sys_updated_on>
+        <sys_updated_on>2023-10-21 16:06:31</sys_updated_on>
         <unloadable>true</unloadable>
     </sys_script_fix>
 </record_update>
