@@ -2,7 +2,7 @@
     <sys_atf_step action="DELETE">
         <active>true</active>
         <copied_from/>
-        <description>Impersonate the user: {{Step 1: Create a User.User}}</description>
+        <description>Impersonate t he user: {{Step 1: Create a User.User}}</description>
         <display_name>Impersonate</display_name>
         <inputs/>
         <inputs/>
