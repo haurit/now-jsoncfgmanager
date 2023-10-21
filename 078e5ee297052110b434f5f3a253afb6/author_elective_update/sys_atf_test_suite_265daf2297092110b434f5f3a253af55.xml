@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_atf_test_suite">
     <sys_atf_test_suite action="DELETE">
         <active>true</active>
-        <description>JSON Cfg Manager Automated Tests</description>
+        <description>JSON  Cfg Manager Automated Tests</description>
         <input_filter/>
         <name>JSON Cfg Manager</name>
         <parent/>
