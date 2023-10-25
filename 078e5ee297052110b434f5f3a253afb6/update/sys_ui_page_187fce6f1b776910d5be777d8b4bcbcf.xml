@@ -45,7 +45,7 @@
 		<ol>
 			<li>Initial Release</li>
 		</ol>
-		<h3>1.0.4 - 11.2023</h3>
+		<h3>1.0.5 - 11.2023</h3>
 		<ol>
 			<li>Added administration menues</li>
 			<li>Added manual page</li>
@@ -147,6 +147,7 @@
 					target="_blank">https://github.com/haurit/now-jsoncfgmanager</a>.</li>
 			<li>Go to&#160;<a href="/$studio.do" target="_blank">Studio</a>&#160;and import the JSON Configuration Manager application
 				from source control.</li>
+			<li>Verify that the demo data has been loaded an updated correctly. If the attachment and relationship related lists are missing run the fix script &#160;<a href="/nav_to.do?uri=sys_script_fix.do?sys_id=42614c5d1b863510d5be777d8b4bcb4e" target="_blank">UpdateDemoData</a>&#160;again.</li>
 		</ol>
 		<h2>ATF Test</h2>
 		<p>To successfully pass the ATF tests it might be neccesary to add the common client errors to the whitelist.
@@ -189,13 +190,13 @@ var sValue = _getCfg.getValue('key1/key2/key3', 'value_if_empty', {'object to us
         <sys_created_by>tom.hauri</sys_created_by>
         <sys_created_on>2023-07-09 05:38:43</sys_created_on>
         <sys_id>187fce6f1b776910d5be777d8b4bcbcf</sys_id>
-        <sys_mod_count>37</sys_mod_count>
+        <sys_mod_count>39</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
         <sys_policy/>
         <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
         <sys_update_name>sys_ui_page_187fce6f1b776910d5be777d8b4bcbcf</sys_update_name>
-        <sys_updated_by>tom.hauri</sys_updated_by>
-        <sys_updated_on>2023-10-20 13:45:17</sys_updated_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-10-25 12:27:21</sys_updated_on>
     </sys_ui_page>
 </record_update>

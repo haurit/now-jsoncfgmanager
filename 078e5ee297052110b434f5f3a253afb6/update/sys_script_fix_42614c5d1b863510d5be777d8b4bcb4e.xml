@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_fix">
     <sys_script_fix action="INSERT_OR_UPDATE">
         <before>false</before>
-        <description/>
+        <description>Update demo data records to trigger attachment and relationship records.</description>
         <name>UpdateDemoData</name>
         <record_for_rollback>false</record_for_rollback>
         <script><![CDATA[var grConfig = new GlideRecord('x_snc_json_cfg_mgr_json_configuration');
@@ -10,19 +10,19 @@ grConfig.query();
 while (grConfig.next()) {
 	grConfig.update();
 	grConfig.update(); // Do what setForceUpdate(true) would do in global (don't ask!)
-} // if demo data]]></script>
+} // while demo data]]></script>
         <sys_class_name>sys_script_fix</sys_class_name>
         <sys_created_by>tom.hauri</sys_created_by>
         <sys_created_on>2023-10-21 15:40:52</sys_created_on>
         <sys_id>42614c5d1b863510d5be777d8b4bcb4e</sys_id>
-        <sys_mod_count>4</sys_mod_count>
+        <sys_mod_count>6</sys_mod_count>
         <sys_name>UpdateDemoData</sys_name>
         <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
         <sys_policy/>
         <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
         <sys_update_name>sys_script_fix_42614c5d1b863510d5be777d8b4bcb4e</sys_update_name>
-        <sys_updated_by>tom.hauri</sys_updated_by>
-        <sys_updated_on>2023-10-21 16:06:31</sys_updated_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-10-25 12:24:54</sys_updated_on>
         <unloadable>true</unloadable>
     </sys_script_fix>
 </record_update>
