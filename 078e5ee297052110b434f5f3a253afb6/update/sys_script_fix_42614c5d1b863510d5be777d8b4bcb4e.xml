@@ -1,26 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_fix">
     <sys_script_fix action="INSERT_OR_UPDATE">
         <before>false</before>
-        <description>This script is run after the installation to ensure that the demo data record has the attachment and the related list to the child configuration.</description>
+        <description/>
         <name>UpdateDemoData</name>
-        <record_for_rollback>true</record_for_rollback>
+        <record_for_rollback>false</record_for_rollback>
         <script><![CDATA[var grConfig = new GlideRecord('x_snc_json_cfg_mgr_json_configuration');
-if (grConfig.get('name', 'demo_parent_1')) {
-	grConfig.setForceUpdate(true);
+grConfig.addEncodedQuery('numberSTARTSWITHOCFGDEMO');
+grConfig.query();
+while (grConfig.next()) {
 	grConfig.update();
-} // if demo parent]]></script>
+	grConfig.update(); // Do what setForceUpdate(true) would do in global (don't ask!)
+} // if demo data]]></script>
         <sys_class_name>sys_script_fix</sys_class_name>
         <sys_created_by>tom.hauri</sys_created_by>
-        <sys_created_on>2023-10-20 12:19:36</sys_created_on>
-        <sys_id>439902f81b8eb110d5be777d8b4bcbb1</sys_id>
-        <sys_mod_count>1</sys_mod_count>
+        <sys_created_on>2023-10-21 15:40:52</sys_created_on>
+        <sys_id>42614c5d1b863510d5be777d8b4bcb4e</sys_id>
+        <sys_mod_count>4</sys_mod_count>
         <sys_name>UpdateDemoData</sys_name>
         <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
         <sys_policy/>
         <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
-        <sys_update_name>sys_script_fix_439902f81b8eb110d5be777d8b4bcbb1</sys_update_name>
+        <sys_update_name>sys_script_fix_42614c5d1b863510d5be777d8b4bcb4e</sys_update_name>
         <sys_updated_by>tom.hauri</sys_updated_by>
-        <sys_updated_on>2023-10-20 12:24:05</sys_updated_on>
-        <unloadable>false</unloadable>
+        <sys_updated_on>2023-10-21 16:06:31</sys_updated_on>
+        <unloadable>true</unloadable>
     </sys_script_fix>
 </record_update>
