@@ -82,11 +82,11 @@ ConfigurationManager.prototype = {
 	}, // function getJSONStringFromConfig
 
 	getConfigJSON: function (grConfig) {
-		var oCfgChild = {};
 		var sConfig = this.getJSONStringFromConfig(grConfig);
 		var oConfig = this.parseJSON(sConfig);
+		var sConfigName = grConfig.getValue('name');
 		if (oConfig) {
-			var oScriptRefs = this.getScriptReferences(sConfig, true, true);
+			var oScriptRefs = this.getScriptReferences(sConfigName, sConfig, true, true);
 			var aReferenceIds = oScriptRefs['ids'];
 			var aMissingReferences = oScriptRefs['notfound'];
 			aReferenceIds.forEach(function (oReferenceObj) {
@@ -152,8 +152,9 @@ ConfigurationManager.prototype = {
 		var bValid = true;
 		var sConfig = this.getJSONStringFromConfig(grConfig);
 		var oConfig = this.parseJSON(sConfig);
+		var sConfigName = grConfig.getValue('name');
 		sConfig = JSON.stringify(oConfig);
-		gs.debug(this.sLogPrefix + 'modifyConfiguration - config found: ' + sConfig);
+		gs.debug(this.sLogPrefix + 'modifyConfiguration - config: ' + sConfigName + ' json string: ' + sConfig);
 		if ((sOperation != 'insert') && (sOperation != 'delete') && ((!oConfig) || (typeof oConfig != 'object'))) {
 			gs.error(this.sLogPrefix + 'modifyConfiguration - invalid JSON');
 			gs.addErrorMessage(gs.getMessage('error_json_invalid'));
@@ -164,8 +165,8 @@ ConfigurationManager.prototype = {
 			var sDisplayName = (bRoot) ? 'Root: ' : 'Node: ';
 			grConfig.setValue('sys_name', sDisplayName + sName);
 			var sParentId = grConfig.getUniqueValue();
-			var oScriptRefs = this.getScriptReferences(sConfig, true);
-			gs.debug(this.sLogPrefix + 'modifyConfiguration - script refs found: ' + JSON.stringify(oScriptRefs));
+			var oScriptRefs = this.getScriptReferences(sConfigName, sConfig, true);
+			gs.debug(this.sLogPrefix + 'modifyConfiguration - config: ' + sConfigName + ' refs found: ' + JSON.stringify(oScriptRefs));
 			var aReferenceIds = oScriptRefs['ids'];
 			var aMissingReferences = oScriptRefs['notfound'];
 			this.removeReferences(sParentId, aReferenceIds);
@@ -208,25 +209,22 @@ ConfigurationManager.prototype = {
 		return gsAttachment.write(grConfig, grConfig.getValue('name') + '_config.json', 'application/json', sJSON);
 	}, // function handleAttachments
 
-	getScriptReferences: function (sScript, bReturnMissingRefs, bReturnRefObject) {
-		var aFoundReferenceIds = [];
+	getScriptReferences: function (sConfigName, sScript, bReturnMissingRefs, bReturnRefObject) {
 		var aReferenceIds = [];
 		var aMissingReferences = [];
 		var grConfig = new GlideRecord('x_snc_json_cfg_mgr_json_configuration');
 		var reRefs = /{{([A-Z|_|\||0-9|\.|,])+}}/gim;
 		var aResults = sScript.match(reRefs);
-		gs.debug(this.sLogPrefix + 'getScriptReferences - script refs found: ' + JSON.stringify(aResults));
+		gs.debug(this.sLogPrefix + 'getScriptReferences - config: ' + sConfigName + ' refs found: ' + JSON.stringify(aResults));
 		var sFullName = '',
 			sName = '',
 			sFileName = '',
-			aTmpNames = [],
-			sTmpQuery = '';
+			aTmpNames = [];
 		if ((aResults) && (Array.isArray(aResults))) {
 			aResults.forEach(function (sResult) {
 				sFullName = sResult.replace(/({|})/g, '');
 				aTmpNames = this.splitStringByPipe(sFullName);
-				sTmpQuery = (aFoundReferenceIds.length > 0) ? '^sys_idNOT IN' + aFoundReferenceIds.join(',') : '';
-				gs.debug(this.sLogPrefix + 'getScriptReferences - full name : ' + sFullName + ' after split by pipe: ' + JSON.stringify(aTmpNames));
+				gs.debug(this.sLogPrefix + 'getScriptReferences - config: ' + sConfigName + ' full name : ' + sFullName + ' after split by pipe: ' + JSON.stringify(aTmpNames));
 				sName = aTmpNames[0];
 				if ((Array.isArray(aTmpNames)) && (aTmpNames.length > 1)) {
 					sFileName = aTmpNames[1];
@@ -234,17 +232,16 @@ ConfigurationManager.prototype = {
 					sFileName = sName;
 				} // if tmp names
 				grConfig = new GlideRecord('x_snc_json_cfg_mgr_json_configuration');
-				grConfig.addEncodedQuery('active=true^name=' + sFileName + sTmpQuery);
+				grConfig.addEncodedQuery('active=true^name=' + sFileName);
 				grConfig.query();
 				if (grConfig.next()) {
-					aFoundReferenceIds.push(grConfig.getUniqueValue());
 					if (bReturnRefObject) {
 						aReferenceIds.push({
 							'fullname': sFullName,
 							'name': sName,
 							'filename': sFileName,
 							'id': grConfig.getUniqueValue()
-						});
+						}); // ref obj
 					} else {
 						aReferenceIds.push(grConfig.getUniqueValue());
 					} // if ref obj
@@ -257,7 +254,7 @@ ConfigurationManager.prototype = {
 			return {
 				'ids': aReferenceIds,
 				'notfound': aMissingReferences
-			};
+			}; // return obj
 		} else {
 			return aReferenceIds;
 		} // return object
@@ -309,13 +306,13 @@ ConfigurationManager.prototype = {
         <sys_created_by>tom.hauri</sys_created_by>
         <sys_created_on>2023-02-19 11:51:10</sys_created_on>
         <sys_id>31b8e62e97052110b434f5f3a253affd</sys_id>
-        <sys_mod_count>25</sys_mod_count>
+        <sys_mod_count>29</sys_mod_count>
         <sys_name>ConfigurationManager</sys_name>
         <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
         <sys_update_name>sys_script_include_31b8e62e97052110b434f5f3a253affd</sys_update_name>
         <sys_updated_by>tom.hauri</sys_updated_by>
-        <sys_updated_on>2023-10-21 12:02:53</sys_updated_on>
+        <sys_updated_on>2023-10-26 11:37:59</sys_updated_on>
     </sys_script_include>
 </record_update>
