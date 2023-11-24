@@ -162,6 +162,65 @@ getCfg.prototype = {
 		}, this); // each path
 	}, // function _setValue
 
+	// Function to retrieve up to 8 levels of config
+	// For recursive configs pass sub object
+	hasValue: function (sConfigPath, sReplace, oConfig) {
+		if (!oConfig) {
+			oConfig = this.oConfig;
+		} // if no object
+		sConfigPath = sConfigPath.replace(/^\//, '').replace(/\/$/, ''); // remove leading and trailing /
+		var aConfigPath = sConfigPath.split('/');
+		var iMaxLength = (Array.isArray(aConfigPath)) ? aConfigPath.length : 0;
+		if ((iMaxLength > 0) && (oConfig) && (oConfig.hasOwnProperty(aConfigPath[0]))) {
+			if (iMaxLength == 1) {
+				return true;
+			} else {
+				if ((iMaxLength > 1) && (oConfig[aConfigPath[0]].hasOwnProperty(aConfigPath[1]))) {
+					if (iMaxLength == 2) {
+						return true;
+					} else {
+						if ((iMaxLength > 2) && (oConfig[aConfigPath[0]][aConfigPath[1]].hasOwnProperty(aConfigPath[2]))) {
+							if (iMaxLength == 3) {
+								return true;
+							} else {
+								if ((iMaxLength > 3) && (oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]].hasOwnProperty(aConfigPath[3]))) {
+									if (iMaxLength == 4) {
+										return true;
+									} else {
+										if ((iMaxLength > 4) && (oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]].hasOwnProperty(aConfigPath[4]))) {
+											if (iMaxLength == 5) {
+												return true;
+											} else {
+												if ((iMaxLength > 5) && (oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]][aConfigPath[4]].hasOwnProperty(aConfigPath[5]))) {
+													if (iMaxLength == 6) {
+														return true;
+													} else {
+														if ((iMaxLength > 6) && (oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]][aConfigPath[4]][aConfigPath[5]].hasOwnProperty(aConfigPath[6]))) {
+															if (iMaxLength == 7) {
+																return true;
+															} else {
+																if ((iMaxLength > 8) && (oConfig[aConfigPath[0]][aConfigPath[1]][aConfigPath[2]][aConfigPath[3]][aConfigPath[4]][aConfigPath[5]][aConfigPath[6]].hasOwnProperty(aConfigPath[7]))) {
+																	if (iMaxLength == 9) {
+																		return true;
+																	} // if found 8 level
+																} // if 8 level
+															} // if found 7 level
+														} // if 7 level
+													} // if found 6 level
+												} // if 6 level
+											} // if found 5 level
+										} // if 5 level
+									} // if found 4 level
+								} // if 4 level
+							} // if found 3 level
+						} // if 3 level
+					} // if found 2 level
+				} // if 2 level
+			} // if found 1 level
+		} // if 1 level
+		return false;
+	}, // function hasValue
+
 	type: 'getCfg',
 	version: '1.0.5',
 	author: 'Tom Hauri',
@@ -172,13 +231,13 @@ getCfg.prototype = {
         <sys_created_by>tom.hauri</sys_created_by>
         <sys_created_on>2023-02-19 12:14:05</sys_created_on>
         <sys_id>1449aa2e97052110b434f5f3a253afee</sys_id>
-        <sys_mod_count>40</sys_mod_count>
+        <sys_mod_count>43</sys_mod_count>
         <sys_name>getCfg</sys_name>
         <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
         <sys_update_name>sys_script_include_1449aa2e97052110b434f5f3a253afee</sys_update_name>
         <sys_updated_by>tom.hauri</sys_updated_by>
-        <sys_updated_on>2023-10-20 12:13:35</sys_updated_on>
+        <sys_updated_on>2023-11-23 16:19:18</sys_updated_on>
     </sys_script_include>
 </record_update>
