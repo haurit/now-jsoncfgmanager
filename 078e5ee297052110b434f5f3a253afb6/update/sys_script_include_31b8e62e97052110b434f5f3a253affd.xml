@@ -25,22 +25,40 @@ ConfigurationManager.prototype = {
 		if (oChild) {
 			var sKey = oReferenceObj['name'];
 			var sOldKey = '{{' + oReferenceObj['fullname'] + '}}';
-			if (oParent.hasOwnProperty(sOldKey)) {
-				var oParentNode = oParent[sOldKey];
-				if ((oParentNode) && (typeof oParentNode === 'object')) {
-					this.mergeObjects(oChild, oParentNode, aMsg, sKey);
-					oParent[sKey] = oChild;
-					//} else if ((oParent[sKey] != 'NULL') && (oParent[sOldKey] != 'NULL')) {
-				} else {
-					oParent[sKey] = oChild;
-				} // if object
-			} else if (oParent) {
-				if ((!Array.isArray(oParent)) && (oParent === Object(oParent))) {
-					Object.keys(oParent).forEach(function (sParentKey) {
-						oParent[sParentKey] = this.mergeCfgObjectsByName(oReferenceObj, oParent[sParentKey], oChild);
-					}, this); // if child object
-				} // if parent is object
-			} // if we find key
+			if ((oReferenceObj.hasOwnProperty('root')) && (oReferenceObj['root'] == true)) {
+				if (oParent.hasOwnProperty(sOldKey)) {
+					oParent[sKey] = JSON.parse(JSON.stringify(oParent[sOldKey]));
+					if ((oParent) && (typeof oParent[sKey] === 'object')) {
+						this.mergeObjects(oChild, oParent, aMsg, sKey);
+						oParent = oChild;
+					} else {
+						oParent = oChild;
+					} // if object
+				} else if (oParent) {
+					if ((!Array.isArray(oParent)) && (oParent === Object(oParent))) {
+						Object.keys(oParent).forEach(function (sParentKey) {
+							oParent[sParentKey] = this.mergeCfgObjectsByName(oReferenceObj, oParent[sParentKey], oChild);
+						}, this); // if child object
+					} // if parent is object
+				} // if we find key
+			} else {
+				if (oParent.hasOwnProperty(sOldKey)) {
+					var oParentNode = oParent[sOldKey];
+					if ((oParentNode) && (typeof oParentNode === 'object')) {
+						this.mergeObjects(oChild, oParentNode, aMsg, sKey);
+						oParent[sKey] = oChild;
+						//} else if ((oParent[sKey] != 'NULL') && (oParent[sOldKey] != 'NULL')) {
+					} else {
+						oParent[sKey] = oChild;
+					} // if object
+				} else if (oParent) {
+					if ((!Array.isArray(oParent)) && (oParent === Object(oParent))) {
+						Object.keys(oParent).forEach(function (sParentKey) {
+							oParent[sParentKey] = this.mergeCfgObjectsByName(oReferenceObj, oParent[sParentKey], oChild);
+						}, this); // if child object
+					} // if parent is object
+				} // if we find key
+			} // if root
 			delete oParent[sOldKey];
 		} // if child config
 		return oParent;
@@ -240,7 +258,8 @@ ConfigurationManager.prototype = {
 							'fullname': sFullName,
 							'name': sName,
 							'filename': sFileName,
-							'id': grConfig.getUniqueValue()
+							'id': grConfig.getUniqueValue(),
+							'root': grConfig.getValue('root')
 						}); // ref obj
 					} else {
 						aReferenceIds.push(grConfig.getUniqueValue());
@@ -297,7 +316,7 @@ ConfigurationManager.prototype = {
 	}, // function splitStringByPipe
 
 	type: 'ConfigurationManager',
-	version: '1.0.5',
+	version: '1.0.6',
 	author: 'Tom Hauri',
 	email: 'tom@hauri.biz'
 
@@ -306,13 +325,13 @@ ConfigurationManager.prototype = {
         <sys_created_by>tom.hauri</sys_created_by>
         <sys_created_on>2023-02-19 11:51:10</sys_created_on>
         <sys_id>31b8e62e97052110b434f5f3a253affd</sys_id>
-        <sys_mod_count>29</sys_mod_count>
+        <sys_mod_count>43</sys_mod_count>
         <sys_name>ConfigurationManager</sys_name>
         <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
         <sys_update_name>sys_script_include_31b8e62e97052110b434f5f3a253affd</sys_update_name>
         <sys_updated_by>tom.hauri</sys_updated_by>
-        <sys_updated_on>2023-10-26 11:37:59</sys_updated_on>
+        <sys_updated_on>2024-03-30 13:27:19</sys_updated_on>
     </sys_script_include>
 </record_update>

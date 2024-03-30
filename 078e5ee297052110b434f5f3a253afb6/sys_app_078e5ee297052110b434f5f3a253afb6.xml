@@ -40,7 +40,7 @@
         <user_role display_value="x_snc_json_cfg_mgr.json_configuration_admin" name="x_snc_json_cfg_mgr.json_configuration_admin">6850266697052110b434f5f3a253afd5</user_role>
         <vendor/>
         <vendor_prefix/>
-        <version>1.0.5</version>
+        <version>1.0.6</version>
     </sys_app>
     <sys_translated_text action="delete_multiple" query="documentkey=078e5ee297052110b434f5f3a253afb6"/>
     <sys_attachment action="INSERT_OR_UPDATE">
