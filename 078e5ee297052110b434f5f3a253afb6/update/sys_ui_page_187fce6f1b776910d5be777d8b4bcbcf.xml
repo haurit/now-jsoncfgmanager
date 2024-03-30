@@ -52,6 +52,10 @@
 			<li>Added ATF Tests</li>
 			<li>Changed getValue to return the substitute value if value is gs.nil()</li>
 		</ol>
+		<h3>1.0.6 - 04.2024</h3>
+		<ol>
+			<li>Inheriting JSON Configurations with active root flag will merge on same level</li>
+		</ol>
 		<h2>Problem Statement</h2>
 		<p>Sustainable solutions are configurable so that you don't have to change the code to adapt to changing user
 			requirements.</p>
@@ -190,13 +194,13 @@ var sValue = _getCfg.getValue('key1/key2/key3', 'value_if_empty', {'object to us
         <sys_created_by>tom.hauri</sys_created_by>
         <sys_created_on>2023-07-09 05:38:43</sys_created_on>
         <sys_id>187fce6f1b776910d5be777d8b4bcbcf</sys_id>
-        <sys_mod_count>41</sys_mod_count>
+        <sys_mod_count>42</sys_mod_count>
         <sys_name>manual</sys_name>
         <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
         <sys_policy/>
         <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
         <sys_update_name>sys_ui_page_187fce6f1b776910d5be777d8b4bcbcf</sys_update_name>
         <sys_updated_by>tom.hauri</sys_updated_by>
-        <sys_updated_on>2023-10-26 07:16:03</sys_updated_on>
+        <sys_updated_on>2024-03-30 13:29:05</sys_updated_on>
     </sys_ui_page>
 </record_update>
