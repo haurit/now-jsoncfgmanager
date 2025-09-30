@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element attributes="update_synch=true" db_object_id="3b4d22931bb3a910c1ecdc61ab4bcbe2" extends="sys_metadata" label="JSON Configuration" max_length="40" name="x_snc_json_cfg_mgr_json_configuration" type="collection">
-        <element default="true" label="Active" max_length="40" name="active" type="boolean"/>
-        <element label="Configuration" max_length="8000" name="configuration" type="script"/>
-        <element display="true" label="Name" mandatory="true" max_length="120" name="name" type="string"/>
         <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
-        <element label="Root" max_length="40" name="root" type="boolean"/>
+        <element attributes="edge_encryption_enabled=true" label="Configuration" max_length="8000" name="configuration" type="script"/>
+        <element attributes="edge_encryption_enabled=true" default="true" label="Active" max_length="40" name="active" type="boolean"/>
+        <element display="true" label="Name" mandatory="true" max_length="120" name="name" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Root" max_length="40" name="root" type="boolean"/>
     </element>
 </database>

@@ -6,8 +6,8 @@
         <elevated_privilege>false</elevated_privilege>
         <grantable>true</grantable>
         <includes_roles/>
+        <limit_concurrent_sessions>false</limit_concurrent_sessions>
         <name>x_snc_json_cfg_mgr.json_configuration_admin</name>
-        <requires_subscription>-1</requires_subscription>
         <scoped_admin>false</scoped_admin>
         <suffix>json_configuration_admin</suffix>
         <sys_class_name>sys_user_role</sys_class_name>

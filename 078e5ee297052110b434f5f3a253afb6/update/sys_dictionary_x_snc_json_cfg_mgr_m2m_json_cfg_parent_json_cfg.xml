@@ -2,7 +2,7 @@
     <sys_dictionary action="INSERT_OR_UPDATE" element="parent_json_cfg" table="x_snc_json_cfg_mgr_m2m_json_cfg">
         <active>true</active>
         <array>false</array>
-        <attributes>encode_utf8=false</attributes>
+        <attributes>edge_encryption_enabled=true,encode_utf8=false</attributes>
         <audit>false</audit>
         <calculation/>
         <choice>0</choice>

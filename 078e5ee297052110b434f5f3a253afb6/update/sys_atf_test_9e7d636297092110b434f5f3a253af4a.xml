@@ -8,6 +8,7 @@
         <name>getConfig</name>
         <parameters/>
         <remember/>
+        <sn_atf_tg_generated>false</sn_atf_tg_generated>
         <sys_class_name>sys_atf_test</sys_class_name>
         <sys_created_by>tom.hauri</sys_created_by>
         <sys_created_on>2023-02-19 16:51:22</sys_created_on>
@@ -20,6 +21,7 @@
         <sys_update_name>sys_atf_test_9e7d636297092110b434f5f3a253af4a</sys_update_name>
         <sys_updated_by>tom.hauri</sys_updated_by>
         <sys_updated_on>2023-02-19 19:25:29</sys_updated_on>
+        <test_origin>manual</test_origin>
     </sys_atf_test>
     <sys_variable_value action="delete_multiple" query="document_key=9e7d636297092110b434f5f3a253af4a"/>
 </record_update>
