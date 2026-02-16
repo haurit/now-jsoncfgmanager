@@ -17,14 +17,19 @@ ConfigurationManager.prototype = {
 		this._gtAttach = new global.GlobalToolsAttachment();
 	}, // function initialize
 
-	mergeCfgObjectsByName: function (oReferenceObj, oParent, oChild) {
-		var aMsg = []; // just for debug purpose: ['1 sKey: ' + sKey + ' oParent: ' + JSON.stringify(oParent) + ' oChild: ' + ' oParent: ' + JSON.stringify(oParent)];
+	mergeCfgObjectsByName: function (oReferenceObj, oParent, oChild, bMergeArrays) {
+		bMergeArrays = (bMergeArrays === true) ? true : false;
+		if ((!oParent) || (typeof oParent !== 'object') || (Array.isArray(oParent))) {
+			return oParent;
+		} // parent is empty
 		if (!oChild) {
-			var grConfigChild = new GlideRecord('x_snc_json_cfg_mgr_json_configuration');
-			if (grConfigChild.get(oReferenceObj['id'])) {
-				oChild = this.getConfigJSON(grConfigChild);
-			} // if child
-		} // if no child config
+			if ((oReferenceObj) && (typeof oReferenceObj === 'object') && (oReferenceObj['id'])) {
+				var grConfigChild = new GlideRecord('x_snc_json_cfg_mgr_json_configuration');
+				if (grConfigChild.get(oReferenceObj['id'])) {
+					oChild = this.getConfigJSON(grConfigChild, bMergeArrays);
+				} // if child record
+			} // if ref obj
+		} // if child
 		if (oChild) {
 			var sKey = oReferenceObj['name'];
 			var sOldKey = '{{' + oReferenceObj['fullname'] + '}}';
@@ -32,7 +37,7 @@ ConfigurationManager.prototype = {
 				if (oParent.hasOwnProperty(sOldKey)) {
 					oParent[sKey] = JSON.parse(JSON.stringify(oParent[sOldKey]));
 					if ((oParent) && (typeof oParent[sKey] === 'object')) {
-						this.mergeObjects(oChild, oParent, aMsg, sKey);
+						oChild = this._gtObject.deepMerge(oChild, oParent, bMergeArrays, true);
 						oParent = oChild;
 					} else {
 						oParent = oChild;
@@ -40,7 +45,7 @@ ConfigurationManager.prototype = {
 				} else if (oParent) {
 					if ((!Array.isArray(oParent)) && (oParent === Object(oParent))) {
 						Object.keys(oParent).forEach(function (sParentKey) {
-							oParent[sParentKey] = this.mergeCfgObjectsByName(oReferenceObj, oParent[sParentKey], oChild);
+							oParent[sParentKey] = this.mergeCfgObjectsByName(oReferenceObj, oParent[sParentKey], oChild, bMergeArrays);
 						}, this); // if child object
 					} // if parent is object
 				} // if we find key
@@ -48,16 +53,15 @@ ConfigurationManager.prototype = {
 				if (oParent.hasOwnProperty(sOldKey)) {
 					var oParentNode = oParent[sOldKey];
 					if ((oParentNode) && (typeof oParentNode === 'object')) {
-						this.mergeObjects(oChild, oParentNode, aMsg, sKey);
+						oChild = this._gtObject.deepMerge(oChild, oParentNode, bMergeArrays, true);
 						oParent[sKey] = oChild;
-						//} else if ((oParent[sKey] != 'NULL') && (oParent[sOldKey] != 'NULL')) {
 					} else {
 						oParent[sKey] = oChild;
 					} // if object
 				} else if (oParent) {
 					if ((!Array.isArray(oParent)) && (oParent === Object(oParent))) {
 						Object.keys(oParent).forEach(function (sParentKey) {
-							oParent[sParentKey] = this.mergeCfgObjectsByName(oReferenceObj, oParent[sParentKey], oChild);
+							oParent[sParentKey] = this.mergeCfgObjectsByName(oReferenceObj, oParent[sParentKey], oChild, bMergeArrays);
 						}, this); // if child object
 					} // if parent is object
 				} // if we find key
@@ -67,34 +71,6 @@ ConfigurationManager.prototype = {
 		return oParent;
 	}, // function mergeCfgObjectsByName
 
-	mergeObjects: function (oObj1, oObj2, aMsg, sKey) {
-		//aMsg.push('2 oObj1: ' + sKey + ' oObj1: ' + JSON.stringify(oObj1) + ' oObj2: ' + JSON.stringify(oObj2));
-		for (var p in oObj2) {
-			if (!oObj2.hasOwnProperty(p)) continue;
-			try {
-				if (oObj2[p] == 'NULL') {
-					delete oObj1[p];
-				} else {
-					if (oObj1[p].constructor !== Object) {
-						oObj1[p] = {};
-					} // if not yet object, make it an object
-					if (oObj2[p].constructor == Object) {
-						oObj1[p] = this.mergeObjects(oObj1[p], oObj2[p], aMsg, sKey);
-					} else {
-						oObj1[p] = oObj2[p];
-					} // if is obj
-				}
-			} catch (ex) {
-				try {
-					oObj1[p] = oObj2[p];
-				} catch (ex) {
-					gs.error(this.sLogPrefix + 'mergeObjects p: ' + p + ' oObj1: ' + JSON.stringify(oObj1) + ' oObj2: ' + JSON.stringify(oObj2) + ' Message: ' + String(ex));
-				} // if object set fails
-			} // catch if not set
-		} // each property in obj2
-		return oObj1;
-	}, // function mergeObjects
-
 	getJSONStringFromConfig: function (grConfig) {
 		var gsEvaluator = new GlideScopedEvaluator();
 		gsEvaluator.putVariable('oCfg', null);
@@ -103,34 +79,40 @@ ConfigurationManager.prototype = {
 		return sConfig;
 	}, // function getJSONStringFromConfig
 
-	getConfigJSON: function (grConfig) {
+	getConfigJSON: function (grConfig, bMergeArrays) {
 		var sConfig = this.getJSONStringFromConfig(grConfig);
-		var oConfig;
-		try {
-			oConfig = JSON.parse(sConfig); // _gtObject does not work correct, probably due to nested call or this confusion
-		} catch (oEx) {
-			// do nothing
-		} // catch error
+		bMergeArrays = ((!bMergeArrays) && (grConfig) && (grConfig.getValue('root') == '1') && (grConfig.getValue('merge_arrays') == '1')) ? true : false;
+		var oConfig = this._gtObject.parseJSON(sConfig);
 		var sConfigName = grConfig.getValue('name');
-		if (oConfig) {
+		if ((oConfig) && (typeof oConfig === 'object')) {
 			var oScriptRefs = this.getScriptReferences(sConfigName, sConfig, true, true);
 			var aReferenceIds = oScriptRefs['ids'];
 			var aMissingReferences = oScriptRefs['notfound'];
 			aReferenceIds.forEach(function (oReferenceObj) {
-				oConfig = this.mergeCfgObjectsByName(oReferenceObj, oConfig);
+				if ((oConfig) && (typeof oConfig === 'object')) {
+					var oResult = this.mergeCfgObjectsByName(oReferenceObj, oConfig, null, bMergeArrays);
+					if ((oResult) && (typeof oResult === 'object')) {
+						oConfig = oResult;
+					} // if result is obj
+				} // if config is obj
 			}, this); // each reference
 			aMissingReferences.forEach(function (sMissingRef) {
-				oConfig = this.mergeCfgObjectsByName(sMissingRef, oConfig, {
-					'_missing_ref_cfg_': true
-				});
-			}, this); // each reference
+				if ((oConfig) && (typeof oConfig === 'object')) {
+					var oResult = this.mergeCfgObjectsByName(sMissingRef, oConfig, {'_missing_ref_cfg_': true}, bMergeArrays);
+					if ((oResult) && (typeof oResult === 'object')) {
+						oConfig = oResult;
+					} // if result is obj
+				} // if config is obj
+			}, this); // each missing reference
 			var sConfigTmp = JSON.stringify(oConfig);
-			sConfigTmp = sConfigTmp.replace(/'{{'/g, "''").replace(/'}}'/g, "''");
-			sConfigTmp = sConfigTmp.replace(/"{{"/g, '""').replace(/"}}"/g, '""');
-			var oConfigTmp = this._gtObject.parseJSON(sConfigTmp);
-			if (oConfigTmp) {
-				this.mergeObjects(oConfigTmp, oConfig); // option to overwrite lower level objects
-			} // if cfg tmp
+			if (sConfigTmp) {
+				sConfigTmp = sConfigTmp.replace(/'{{'/g, "''").replace(/'}}'/g, "''");
+				sConfigTmp = sConfigTmp.replace(/"{{"/g, '""').replace(/"}}"/g, '""');
+				var oConfigTmp = this._gtObject.parseJSON(sConfigTmp);
+				if (oConfigTmp) {
+					this._gtObject.deepMerge(oConfigTmp, oConfig, bMergeArrays, true);
+				} // if oConfigTmp
+			} // if sConfigTmp
 		} // if oConfig
 		return oConfig;
 	}, // function getConfigJSON
@@ -312,13 +294,13 @@ ConfigurationManager.prototype = {
         <sys_created_by>tom.hauri</sys_created_by>
         <sys_created_on>2023-02-19 11:51:10</sys_created_on>
         <sys_id>31b8e62e97052110b434f5f3a253affd</sys_id>
-        <sys_mod_count>57</sys_mod_count>
+        <sys_mod_count>70</sys_mod_count>
         <sys_name>ConfigurationManager</sys_name>
         <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
         <sys_update_name>sys_script_include_31b8e62e97052110b434f5f3a253affd</sys_update_name>
         <sys_updated_by>tom.hauri</sys_updated_by>
-        <sys_updated_on>2026-02-16 17:23:56</sys_updated_on>
+        <sys_updated_on>2026-02-16 20:33:19</sys_updated_on>
     </sys_script_include>
 </record_update>
