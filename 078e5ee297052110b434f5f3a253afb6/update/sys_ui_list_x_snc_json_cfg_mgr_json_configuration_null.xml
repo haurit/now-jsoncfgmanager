@@ -3,152 +3,167 @@
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>number</element>
-            <list_id display_value="x_snc_json_cfg_mgr_json_configuration" element="NULL" name="x_snc_json_cfg_mgr_json_configuration" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">82f72eea97052110b434f5f3a253afa3</list_id>
+            <list_id display_value="x_snc_json_cfg_mgr_json_configuration" element="NULL" name="x_snc_json_cfg_mgr_json_configuration" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">2272d9a6c30bbe1016a2269dc00131eb</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>0</position>
             <sum>false</sum>
             <sys_created_by>tom.hauri</sys_created_by>
-            <sys_created_on>2023-02-19 11:46:51</sys_created_on>
-            <sys_id>0ef72eea97052110b434f5f3a253afa3</sys_id>
+            <sys_created_on>2026-02-16 20:34:39</sys_created_on>
+            <sys_id>2a72d9a6c30bbe1016a2269dc00131ed</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>tom.hauri</sys_updated_by>
-            <sys_updated_on>2023-02-19 11:46:51</sys_updated_on>
+            <sys_updated_on>2026-02-16 20:34:39</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element>name</element>
-            <list_id display_value="x_snc_json_cfg_mgr_json_configuration" element="NULL" name="x_snc_json_cfg_mgr_json_configuration" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">82f72eea97052110b434f5f3a253afa3</list_id>
+            <list_id display_value="x_snc_json_cfg_mgr_json_configuration" element="NULL" name="x_snc_json_cfg_mgr_json_configuration" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">2272d9a6c30bbe1016a2269dc00131eb</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>1</position>
             <sum>false</sum>
             <sys_created_by>tom.hauri</sys_created_by>
-            <sys_created_on>2023-02-19 11:46:51</sys_created_on>
-            <sys_id>8ef72eea97052110b434f5f3a253afa3</sys_id>
+            <sys_created_on>2026-02-16 20:34:39</sys_created_on>
+            <sys_id>a672d9a6c30bbe1016a2269dc00131ee</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>tom.hauri</sys_updated_by>
-            <sys_updated_on>2023-02-19 11:46:51</sys_updated_on>
+            <sys_updated_on>2026-02-16 20:34:39</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>active</element>
-            <list_id display_value="x_snc_json_cfg_mgr_json_configuration" element="NULL" name="x_snc_json_cfg_mgr_json_configuration" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">82f72eea97052110b434f5f3a253afa3</list_id>
+            <element>root</element>
+            <list_id display_value="x_snc_json_cfg_mgr_json_configuration" element="NULL" name="x_snc_json_cfg_mgr_json_configuration" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">2272d9a6c30bbe1016a2269dc00131eb</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>2</position>
             <sum>false</sum>
             <sys_created_by>tom.hauri</sys_created_by>
-            <sys_created_on>2023-02-19 11:46:51</sys_created_on>
-            <sys_id>02f72eea97052110b434f5f3a253afa4</sys_id>
+            <sys_created_on>2026-02-16 20:34:39</sys_created_on>
+            <sys_id>2e72d9a6c30bbe1016a2269dc00131ee</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>tom.hauri</sys_updated_by>
-            <sys_updated_on>2023-02-19 11:46:51</sys_updated_on>
+            <sys_updated_on>2026-02-16 20:34:39</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>root</element>
-            <list_id display_value="x_snc_json_cfg_mgr_json_configuration" element="NULL" name="x_snc_json_cfg_mgr_json_configuration" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">82f72eea97052110b434f5f3a253afa3</list_id>
+            <element>merge_arrays</element>
+            <list_id display_value="x_snc_json_cfg_mgr_json_configuration" element="NULL" name="x_snc_json_cfg_mgr_json_configuration" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">2272d9a6c30bbe1016a2269dc00131eb</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>3</position>
             <sum>false</sum>
             <sys_created_by>tom.hauri</sys_created_by>
-            <sys_created_on>2023-02-19 11:46:51</sys_created_on>
-            <sys_id>82f72eea97052110b434f5f3a253afa4</sys_id>
+            <sys_created_on>2026-02-16 20:34:39</sys_created_on>
+            <sys_id>a272d9a6c30bbe1016a2269dc00131ef</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>tom.hauri</sys_updated_by>
-            <sys_updated_on>2023-02-19 11:46:51</sys_updated_on>
+            <sys_updated_on>2026-02-16 20:34:39</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>configuration</element>
-            <list_id display_value="x_snc_json_cfg_mgr_json_configuration" element="NULL" name="x_snc_json_cfg_mgr_json_configuration" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">82f72eea97052110b434f5f3a253afa3</list_id>
+            <element>active</element>
+            <list_id display_value="x_snc_json_cfg_mgr_json_configuration" element="NULL" name="x_snc_json_cfg_mgr_json_configuration" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">2272d9a6c30bbe1016a2269dc00131eb</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>4</position>
             <sum>false</sum>
             <sys_created_by>tom.hauri</sys_created_by>
-            <sys_created_on>2023-02-19 11:46:51</sys_created_on>
-            <sys_id>06f72eea97052110b434f5f3a253afa4</sys_id>
+            <sys_created_on>2026-02-16 20:34:39</sys_created_on>
+            <sys_id>2a72d9a6c30bbe1016a2269dc00131ef</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>tom.hauri</sys_updated_by>
-            <sys_updated_on>2023-02-19 11:46:51</sys_updated_on>
+            <sys_updated_on>2026-02-16 20:34:39</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>sys_scope</element>
-            <list_id display_value="x_snc_json_cfg_mgr_json_configuration" element="NULL" name="x_snc_json_cfg_mgr_json_configuration" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">82f72eea97052110b434f5f3a253afa3</list_id>
+            <element>configuration</element>
+            <list_id display_value="x_snc_json_cfg_mgr_json_configuration" element="NULL" name="x_snc_json_cfg_mgr_json_configuration" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">2272d9a6c30bbe1016a2269dc00131eb</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>5</position>
             <sum>false</sum>
             <sys_created_by>tom.hauri</sys_created_by>
-            <sys_created_on>2023-02-19 11:46:51</sys_created_on>
-            <sys_id>86f72eea97052110b434f5f3a253afa4</sys_id>
+            <sys_created_on>2026-02-16 20:34:39</sys_created_on>
+            <sys_id>ae72d9a6c30bbe1016a2269dc00131ef</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>tom.hauri</sys_updated_by>
-            <sys_updated_on>2023-02-19 11:46:51</sys_updated_on>
+            <sys_updated_on>2026-02-16 20:34:39</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>sys_updated_on</element>
-            <list_id display_value="x_snc_json_cfg_mgr_json_configuration" element="NULL" name="x_snc_json_cfg_mgr_json_configuration" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">82f72eea97052110b434f5f3a253afa3</list_id>
+            <element>sys_scope</element>
+            <list_id display_value="x_snc_json_cfg_mgr_json_configuration" element="NULL" name="x_snc_json_cfg_mgr_json_configuration" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">2272d9a6c30bbe1016a2269dc00131eb</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>6</position>
             <sum>false</sum>
             <sys_created_by>tom.hauri</sys_created_by>
-            <sys_created_on>2023-02-19 11:46:51</sys_created_on>
-            <sys_id>0af72eea97052110b434f5f3a253afa4</sys_id>
+            <sys_created_on>2026-02-16 20:34:39</sys_created_on>
+            <sys_id>2672d9a6c30bbe1016a2269dc00131f0</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>tom.hauri</sys_updated_by>
-            <sys_updated_on>2023-02-19 11:46:51</sys_updated_on>
+            <sys_updated_on>2026-02-16 20:34:39</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>sys_updated_by</element>
-            <list_id display_value="x_snc_json_cfg_mgr_json_configuration" element="NULL" name="x_snc_json_cfg_mgr_json_configuration" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">82f72eea97052110b434f5f3a253afa3</list_id>
+            <element>sys_updated_on</element>
+            <list_id display_value="x_snc_json_cfg_mgr_json_configuration" element="NULL" name="x_snc_json_cfg_mgr_json_configuration" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">2272d9a6c30bbe1016a2269dc00131eb</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>7</position>
             <sum>false</sum>
             <sys_created_by>tom.hauri</sys_created_by>
-            <sys_created_on>2023-02-19 11:46:51</sys_created_on>
-            <sys_id>8af72eea97052110b434f5f3a253afa4</sys_id>
+            <sys_created_on>2026-02-16 20:34:39</sys_created_on>
+            <sys_id>aa72d9a6c30bbe1016a2269dc00131f0</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>tom.hauri</sys_updated_by>
-            <sys_updated_on>2023-02-19 11:46:51</sys_updated_on>
+            <sys_updated_on>2026-02-16 20:34:39</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>sys_created_on</element>
-            <list_id display_value="x_snc_json_cfg_mgr_json_configuration" element="NULL" name="x_snc_json_cfg_mgr_json_configuration" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">82f72eea97052110b434f5f3a253afa3</list_id>
+            <element>sys_updated_by</element>
+            <list_id display_value="x_snc_json_cfg_mgr_json_configuration" element="NULL" name="x_snc_json_cfg_mgr_json_configuration" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">2272d9a6c30bbe1016a2269dc00131eb</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>8</position>
             <sum>false</sum>
             <sys_created_by>tom.hauri</sys_created_by>
-            <sys_created_on>2023-02-19 11:46:51</sys_created_on>
-            <sys_id>0ef72eea97052110b434f5f3a253afa4</sys_id>
+            <sys_created_on>2026-02-16 20:34:39</sys_created_on>
+            <sys_id>2272d9a6c30bbe1016a2269dc00131f1</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>tom.hauri</sys_updated_by>
-            <sys_updated_on>2023-02-19 11:46:51</sys_updated_on>
+            <sys_updated_on>2026-02-16 20:34:39</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list_element action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
-            <element>sys_created_by</element>
-            <list_id display_value="x_snc_json_cfg_mgr_json_configuration" element="NULL" name="x_snc_json_cfg_mgr_json_configuration" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">82f72eea97052110b434f5f3a253afa3</list_id>
+            <element>sys_created_on</element>
+            <list_id display_value="x_snc_json_cfg_mgr_json_configuration" element="NULL" name="x_snc_json_cfg_mgr_json_configuration" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">2272d9a6c30bbe1016a2269dc00131eb</list_id>
             <max_value>false</max_value>
             <min_value>false</min_value>
             <position>9</position>
             <sum>false</sum>
             <sys_created_by>tom.hauri</sys_created_by>
-            <sys_created_on>2023-02-19 11:46:51</sys_created_on>
-            <sys_id>8ef72eea97052110b434f5f3a253afa4</sys_id>
+            <sys_created_on>2026-02-16 20:34:39</sys_created_on>
+            <sys_id>a672d9a6c30bbe1016a2269dc00131f1</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>tom.hauri</sys_updated_by>
-            <sys_updated_on>2023-02-19 11:46:51</sys_updated_on>
+            <sys_updated_on>2026-02-16 20:34:39</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>sys_created_by</element>
+            <list_id display_value="x_snc_json_cfg_mgr_json_configuration" element="NULL" name="x_snc_json_cfg_mgr_json_configuration" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">2272d9a6c30bbe1016a2269dc00131eb</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>10</position>
+            <sum>false</sum>
+            <sys_created_by>tom.hauri</sys_created_by>
+            <sys_created_on>2026-02-16 20:34:40</sys_created_on>
+            <sys_id>2e72d9a6c30bbe1016a2269dc00131f1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>tom.hauri</sys_updated_by>
+            <sys_updated_on>2026-02-16 20:34:40</sys_updated_on>
         </sys_ui_list_element>
         <sys_ui_list action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
@@ -162,10 +177,10 @@
             <sum>false</sum>
             <sys_class_name>sys_ui_list</sys_class_name>
             <sys_created_by>tom.hauri</sys_created_by>
-            <sys_created_on>2023-02-19 11:46:51</sys_created_on>
+            <sys_created_on>2026-02-16 20:34:39</sys_created_on>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
-            <sys_id>82f72eea97052110b434f5f3a253afa3</sys_id>
+            <sys_id>2272d9a6c30bbe1016a2269dc00131eb</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_name>x_snc_json_cfg_mgr_json_configuration</sys_name>
             <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
@@ -173,7 +188,7 @@
             <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
             <sys_update_name>sys_ui_list_x_snc_json_cfg_mgr_json_configuration_null</sys_update_name>
             <sys_updated_by>tom.hauri</sys_updated_by>
-            <sys_updated_on>2023-02-19 11:46:51</sys_updated_on>
+            <sys_updated_on>2026-02-16 20:34:39</sys_updated_on>
             <sys_user/>
             <view display_value="Default view" name="NULL">Default view</view>
             <view_name/>
