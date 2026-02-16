@@ -6,16 +6,19 @@
         <caller_access/>
         <client_callable>false</client_callable>
         <description>Configuration Manager</description>
+        <mobile_callable>false</mobile_callable>
         <name>ConfigurationManager</name>
+        <sandbox_callable>false</sandbox_callable>
         <script><![CDATA[var ConfigurationManager = Class.create();
 ConfigurationManager.prototype = {
 	initialize: function () {
 		this.sLogPrefix = 'ConfigurationManager - ';
+		this._gtObject = new global.GlobalToolsObject();
+		this._gtAttach = new global.GlobalToolsAttachment();
 	}, // function initialize
 
 	mergeCfgObjectsByName: function (oReferenceObj, oParent, oChild) {
 		var aMsg = []; // just for debug purpose: ['1 sKey: ' + sKey + ' oParent: ' + JSON.stringify(oParent) + ' oChild: ' + ' oParent: ' + JSON.stringify(oParent)];
-		var bHasChildConfig = false;
 		if (!oChild) {
 			var grConfigChild = new GlideRecord('x_snc_json_cfg_mgr_json_configuration');
 			if (grConfigChild.get(oReferenceObj['id'])) {
@@ -67,11 +70,12 @@ ConfigurationManager.prototype = {
 	mergeObjects: function (oObj1, oObj2, aMsg, sKey) {
 		//aMsg.push('2 oObj1: ' + sKey + ' oObj1: ' + JSON.stringify(oObj1) + ' oObj2: ' + JSON.stringify(oObj2));
 		for (var p in oObj2) {
+			if (!oObj2.hasOwnProperty(p)) continue;
 			try {
 				if (oObj2[p] == 'NULL') {
 					delete oObj1[p];
 				} else {
-					if (!oObj1[p].constructor == Object) {
+					if (oObj1[p].constructor !== Object) {
 						oObj1[p] = {};
 					} // if not yet object, make it an object
 					if (oObj2[p].constructor == Object) {
@@ -101,7 +105,12 @@ ConfigurationManager.prototype = {
 
 	getConfigJSON: function (grConfig) {
 		var sConfig = this.getJSONStringFromConfig(grConfig);
-		var oConfig = this.parseJSON(sConfig);
+		var oConfig;
+		try {
+			oConfig = JSON.parse(sConfig); // _gtObject does not work correct, probably due to nested call or this confusion
+		} catch (oEx) {
+			// do nothing
+		} // catch error
 		var sConfigName = grConfig.getValue('name');
 		if (oConfig) {
 			var oScriptRefs = this.getScriptReferences(sConfigName, sConfig, true, true);
@@ -118,7 +127,7 @@ ConfigurationManager.prototype = {
 			var sConfigTmp = JSON.stringify(oConfig);
 			sConfigTmp = sConfigTmp.replace(/'{{'/g, "''").replace(/'}}'/g, "''");
 			sConfigTmp = sConfigTmp.replace(/"{{"/g, '""').replace(/"}}"/g, '""');
-			var oConfigTmp = this.parseJSON(sConfigTmp);
+			var oConfigTmp = this._gtObject.parseJSON(sConfigTmp);
 			if (oConfigTmp) {
 				this.mergeObjects(oConfigTmp, oConfig); // option to overwrite lower level objects
 			} // if cfg tmp
@@ -145,7 +154,7 @@ ConfigurationManager.prototype = {
 			sFieldName = '',
 			sFieldValue = '';
 		var sConfig = JSON.stringify(this.getConfigJSON(grConfig));
-		var reConfigFields = /\[\[([A-Z|_|\||0-9|\.|,])+\]\]/gim;
+		var reConfigFields = /\[\[([A-Z_|0-9.,])+\]\]/gim;
 		var aResults = sConfig.match(reConfigFields);
 		if ((aResults) && (Array.isArray(aResults))) {
 			aResults.forEach(function (sResult) {
@@ -161,7 +170,7 @@ ConfigurationManager.prototype = {
 				sConfig = sConfig.replace('"' + sResult + '"', '"' + sFieldValue + '"');
 			}, this); // get replace fields
 		} // if result
-		var oConfig = this.parseJSON(sConfig);
+		var oConfig = this._gtObject.parseJSON(sConfig);
 		return oConfig;
 	}, // function getConfig
 
@@ -169,7 +178,7 @@ ConfigurationManager.prototype = {
 		gs.debug(this.sLogPrefix + 'modifyConfiguration - started');
 		var bValid = true;
 		var sConfig = this.getJSONStringFromConfig(grConfig);
-		var oConfig = this.parseJSON(sConfig);
+		var oConfig = this._gtObject.parseJSON(sConfig);
 		var sConfigName = grConfig.getValue('name');
 		sConfig = JSON.stringify(oConfig);
 		gs.debug(this.sLogPrefix + 'modifyConfiguration - config: ' + sConfigName + ' json string: ' + sConfig);
@@ -198,40 +207,18 @@ ConfigurationManager.prototype = {
 				gs.addInfoMessage(gs.getMessage('info_missing_refs', [aMissingReferences.join(', ')]));
 			} // if missing
 			if (bRoot) {
-				this.handleAttachments(grConfig, JSON.stringify(this.getConfig(grConfig, true)));
-			} // if not parsable
+				this._gtAttach.deleteAttachment(grConfig.getTableName(), grConfig.getUniqueValue());
+				this._gtAttach.writeAttachment(grConfig, grConfig.getValue('name') + '_config.json', JSON.stringify(this.getConfig(grConfig)), 'application/json');
+			} // if root
 		} // if json not valid
 		return bValid;
 	}, // function modifyConfiguration
-
-	parseJSON: function (sJSON) {
-		if (sJSON) {
-			try {
-				return JSON.parse(sJSON);
-			} catch (ex) {
-				gs.error(this.sLogPrefix + 'parseJSON Error parsing script: ' + sJSON + ' Message: ' + String(ex));
-			} // catch JSON ex
-		} // if script
-		return '';
-	}, // function parseJSON
-
-	handleAttachments: function (grConfig, sJSON) {
-		var gsAttachment = new GlideSysAttachment();
-		var grAtt = new GlideRecord('sys_attachment');
-		grAtt.addQuery('table_name', grConfig.getTableName());
-		grAtt.addQuery('table_sys_id', grConfig.getUniqueValue());
-		grAtt.query();
-		while (grAtt.next()) {
-			gsAttachment.deleteAttachment(grAtt.getUniqueValue());
-		} // each attachment
-		return gsAttachment.write(grConfig, grConfig.getValue('name') + '_config.json', 'application/json', sJSON);
-	}, // function handleAttachments
 
 	getScriptReferences: function (sConfigName, sScript, bReturnMissingRefs, bReturnRefObject) {
 		var aReferenceIds = [];
 		var aMissingReferences = [];
 		var grConfig = new GlideRecord('x_snc_json_cfg_mgr_json_configuration');
-		var reRefs = /{{([A-Z|_|\||0-9|\.|,])+}}/gim;
+		var reRefs = /{{([A-Z_|0-9.,])+}}/gim;
 		var aResults = sScript.match(reRefs);
 		gs.debug(this.sLogPrefix + 'getScriptReferences - config: ' + sConfigName + ' refs found: ' + JSON.stringify(aResults));
 		var sFullName = '',
@@ -316,7 +303,7 @@ ConfigurationManager.prototype = {
 	}, // function splitStringByPipe
 
 	type: 'ConfigurationManager',
-	version: '1.0.6',
+	version: '1.1.0',
 	author: 'Tom Hauri',
 	email: 'tom@hauri.biz'
 
@@ -325,13 +312,13 @@ ConfigurationManager.prototype = {
         <sys_created_by>tom.hauri</sys_created_by>
         <sys_created_on>2023-02-19 11:51:10</sys_created_on>
         <sys_id>31b8e62e97052110b434f5f3a253affd</sys_id>
-        <sys_mod_count>43</sys_mod_count>
+        <sys_mod_count>57</sys_mod_count>
         <sys_name>ConfigurationManager</sys_name>
         <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
         <sys_update_name>sys_script_include_31b8e62e97052110b434f5f3a253affd</sys_update_name>
         <sys_updated_by>tom.hauri</sys_updated_by>
-        <sys_updated_on>2024-03-30 13:27:19</sys_updated_on>
+        <sys_updated_on>2026-02-16 17:23:56</sys_updated_on>
     </sys_script_include>
 </record_update>
