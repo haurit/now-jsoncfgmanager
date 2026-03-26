@@ -8,6 +8,7 @@
         <name>getValue</name>
         <parameters/>
         <remember/>
+        <sn_atf_tg_generated>false</sn_atf_tg_generated>
         <sys_class_name>sys_atf_test</sys_class_name>
         <sys_created_by>tom.hauri</sys_created_by>
         <sys_created_on>2023-02-20 07:56:55</sys_created_on>
@@ -20,6 +21,7 @@
         <sys_update_name>sys_atf_test_fbecb27a97416110b434f5f3a253aff5</sys_update_name>
         <sys_updated_by>tom.hauri</sys_updated_by>
         <sys_updated_on>2023-02-20 07:59:20</sys_updated_on>
+        <test_origin>manual</test_origin>
     </sys_atf_test>
     <sys_variable_value action="delete_multiple" query="document_key=fbecb27a97416110b434f5f3a253aff5"/>
 </record_update>

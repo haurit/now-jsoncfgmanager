@@ -14,6 +14,5 @@
         <sys_updated_by>tom.hauri</sys_updated_by>
         <sys_updated_on>2023-07-09 05:38:44</sys_updated_on>
         <sys_user_role display_value="x_snc_json_cfg_mgr.json_configuration_admin" name="x_snc_json_cfg_mgr.json_configuration_admin">6850266697052110b434f5f3a253afd5</sys_user_role>
-        <transaction_id/>
     </sys_security_acl_role>
 </record_update>

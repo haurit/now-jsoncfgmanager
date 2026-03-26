@@ -8,6 +8,7 @@
         <name>CreateAndReadJSON</name>
         <parameters/>
         <remember/>
+        <sn_atf_tg_generated>false</sn_atf_tg_generated>
         <sys_class_name>sys_atf_test</sys_class_name>
         <sys_created_by>tom.hauri</sys_created_by>
         <sys_created_on>2023-07-08 13:10:35</sys_created_on>
@@ -20,6 +21,7 @@
         <sys_update_name>sys_atf_test_5dffe2571bb3a910c1ecdc61ab4bcbd3</sys_update_name>
         <sys_updated_by>tom.hauri</sys_updated_by>
         <sys_updated_on>2023-07-08 13:26:48</sys_updated_on>
+        <test_origin>manual</test_origin>
     </sys_atf_test>
     <sys_variable_value action="delete_multiple" query="document_key=5dffe2571bb3a910c1ecdc61ab4bcbd3"/>
 </record_update>

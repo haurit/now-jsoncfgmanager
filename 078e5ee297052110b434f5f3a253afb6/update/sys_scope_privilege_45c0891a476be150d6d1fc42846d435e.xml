@@ -16,7 +16,7 @@
         <sys_updated_by>tom.hauri</sys_updated_by>
         <sys_updated_on>2023-06-22 16:14:26</sys_updated_on>
         <target_name>x_snc_interface_cm_configuration</target_name>
-        <target_scope display_value="Interface Config Manager">a1a2d77a97816110b434f5f3a253afa6</target_scope>
+        <target_scope display_value="">a1a2d77a97816110b434f5f3a253afa6</target_scope>
         <target_type>sys_db_object</target_type>
     </sys_scope_privilege>
 </record_update>
