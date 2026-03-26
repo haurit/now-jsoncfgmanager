@@ -25,6 +25,7 @@
 		}, // child 1 copy with a pipe obj 2 key 2 override
 	}, // demo child 1 copy child 1
 }; ]]></configuration>
+        <merge_arrays>false</merge_arrays>
         <name>demo_parent_1</name>
         <number>OCFGDEMO00000001</number>
         <root>true</root>
