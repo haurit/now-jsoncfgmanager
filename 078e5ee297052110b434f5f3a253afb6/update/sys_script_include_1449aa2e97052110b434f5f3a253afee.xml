@@ -48,11 +48,28 @@ getCfg.prototype = {
 		if (!oConfig) {
 			oConfig = this.oConfig;
 		} // if no object
-		return this._gtObject.getValue(sConfigPath, sReplace, oConfig);
+		if ((!sConfigPath) || (!oConfig)) {
+			return sReplace;
+		} // if no path or object
+		sConfigPath = sConfigPath.replace(/^\//, '').replace(/\/$/, ''); // remove leading and trailing /
+		var aConfigPath = sConfigPath.split('/');
+		var iMaxLength = (Array.isArray(aConfigPath)) ? aConfigPath.length : 0;
+		if (iMaxLength === 0) {
+			return sReplace;
+		} // if no item
+		var oCurrent = oConfig;
+		for (var i = 0; i < iMaxLength; i++) {
+			if (gs.nil(oCurrent[aConfigPath[i]])) {
+				return sReplace;
+			} // if nil at this level
+			oCurrent = oCurrent[aConfigPath[i]];
+		} // for each path segment
+		return oCurrent;
+		//return this._gtObject.getValue(sConfigPath, sReplace, oConfig); // --> this binding breaks when called from other scripts if this.oConfig or this._gtObject does not exist
 	}, // function getConfigValue
 
 	type: 'getCfg',
-	version: '1.1.0',
+	version: '1.1.1',
 	author: 'Tom Hauri',
 	email: 'tom@hauri.biz'
 
@@ -61,13 +78,13 @@ getCfg.prototype = {
         <sys_created_by>tom.hauri</sys_created_by>
         <sys_created_on>2023-02-19 12:14:05</sys_created_on>
         <sys_id>1449aa2e97052110b434f5f3a253afee</sys_id>
-        <sys_mod_count>45</sys_mod_count>
+        <sys_mod_count>47</sys_mod_count>
         <sys_name>getCfg</sys_name>
         <sys_package display_value="JSON Cfg Manager" source="x_snc_json_cfg_mgr">078e5ee297052110b434f5f3a253afb6</sys_package>
         <sys_policy>read</sys_policy>
         <sys_scope display_value="JSON Cfg Manager">078e5ee297052110b434f5f3a253afb6</sys_scope>
         <sys_update_name>sys_script_include_1449aa2e97052110b434f5f3a253afee</sys_update_name>
         <sys_updated_by>tom.hauri</sys_updated_by>
-        <sys_updated_on>2026-02-16 11:01:05</sys_updated_on>
+        <sys_updated_on>2026-04-27 18:17:55</sys_updated_on>
     </sys_script_include>
 </record_update>
